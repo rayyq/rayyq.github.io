@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Spring MVC 源码分析]]></title>
     <url>%2F2019%2F05%2F29%2FSpring-MVC-%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%2F</url>
-    <content type="text"><![CDATA[[TOC] 前两天看了 Spring IOC 容器的源码，了解了容器是怎么初始化，Spring Beans 的生命周期，以及初始化时很多设计模式的使用。这篇文章将带大家阅读 Spring MVC 处理请求的流程源码（有理解不当之处请谅解），在阅读 Spring MVC 源码之前，建议读者先阅读这一篇文章 Spring IOC 容器源码分析)，这将有助于读者理解 Spring MVC 中部分源码。 本文采用的源码版本为 5.0.x.RELEASE 引言Spring MVC 是基于 Servlet 开发的一个 Web 框架，其核心为 DispatcherServlet，我们先来看一下它的继承机构。 很明显，DispatcherServlet 中一定封装了 Servlet 的方法，这也能说明为什么 Spring MVC 是一个基于 Sevlet开发的 Web MVC 框架了。 Servlet 生命周期在往下分析之前，我们先了解一下 Servlet 的生命周期方法（假设读者忘记或者对Servlet 生命周期不熟悉）： init：Servlet 创建对象之后调用 service：Servlet 对象被 HTTP 请求访问时调用 destroy：Servlet 对象被销毁之前调用 Spring MVC 总体流程首先我们来看看 Spring MVC 中处理流程]]></content>
+    <content type="text"><![CDATA[[TOC] 前两天看了 Spring IOC 容器的源码，了解了容器是怎么初始化，Spring Beans 的生命周期，以及初始化时很多设计模式的使用。这篇文章将带大家阅读 Spring MVC 处理请求的流程源码（有理解不当之处请谅解），在阅读 Spring MVC 源码之前，建议读者先阅读这一篇文章 Spring IOC 容器源码分析)，这将有助于读者理解 Spring MVC 中部分源码。 本文采用的源码版本为 5.0.x.RELEASE 引言Spring MVC 是基于 Servlet 开发的一个 Web 框架，其核心为 DispatcherServlet，我们先来看一下它的继承结构。 很明显，DispatcherServlet 中一定封装了 Servlet 的方法，这也能说明为什么 Spring MVC 是一个基于 Sevlet开发的 Web MVC 框架了。 Servlet 生命周期在往下分析之前，我们先了解一下 Servlet 的生命周期方法（假设读者忘记或者对Servlet 生命周期不熟悉）： init：Servlet 创建对象之后调用 service：Servlet 对象被 HTTP 请求访问时调用 destroy：Servlet 对象被销毁之前调用 Spring MVC 总体流程首先我们来看看 Spring MVC 中处理流程]]></content>
       <categories>
         <category>Spring Framework</category>
       </categories>

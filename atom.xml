@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rayyq.github.io/"/>
-  <updated>2019-05-29T11:57:15.382Z</updated>
+  <updated>2019-05-29T12:00:58.576Z</updated>
   <id>http://rayyq.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://rayyq.github.io/2019/05/29/Spring-MVC-%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/"/>
     <id>http://rayyq.github.io/2019/05/29/Spring-MVC-源码分析/</id>
     <published>2019-05-29T12:50:02.000Z</published>
-    <updated>2019-05-29T11:57:15.382Z</updated>
+    <updated>2019-05-29T12:00:58.576Z</updated>
     
-    <content type="html"><![CDATA[<p>[TOC]</p><p>前两天看了 Spring IOC 容器的源码，了解了容器是怎么初始化，Spring Beans 的生命周期，以及初始化时很多设计模式的使用。这篇文章将带大家阅读 Spring MVC 处理请求的流程源码（有理解不当之处请谅解），在阅读 Spring MVC 源码之前，建议读者先阅读这一篇文章 <a href="[https://rayyq.github.io/2019/05/27/Spring-IOC-%E5%AE%B9%E5%99%A8%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/](https://rayyq.github.io/2019/05/27/Spring-IOC-容器源码分析/">Spring IOC 容器源码分析</a>)，这将有助于读者理解 Spring MVC 中部分源码。</p><blockquote><p>本文采用的源码版本为 <code>5.0.x.RELEASE</code></p></blockquote><a id="more"></a><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>Spring MVC 是基于 <code>Servlet</code> 开发的一个 Web 框架，其核心为 <code>DispatcherServlet</code>，我们先来看一下它的继承机构。</p> <center><img src="/1.png"></center><p>很明显，DispatcherServlet 中一定封装了 <code>Servlet</code> 的方法，这也能说明为什么 Spring MVC 是一个基于 <code>Sevlet</code>开发的 Web MVC 框架了。</p><h3 id="Servlet-生命周期"><a href="#Servlet-生命周期" class="headerlink" title="Servlet 生命周期"></a>Servlet 生命周期</h3><p>在往下分析之前，我们先了解一下 Servlet 的生命周期方法（假设读者忘记或者对<code>Servlet</code> 生命周期不熟悉）：</p><ul><li><strong>init</strong>：<code>Servlet</code> 创建对象之后调用</li><li><strong>service</strong>：<code>Servlet</code> 对象被 <code>HTTP</code> 请求访问时调用</li><li><strong>destroy</strong>：<code>Servlet</code> 对象被销毁之前调用</li></ul><h2 id="Spring-MVC-总体流程"><a href="#Spring-MVC-总体流程" class="headerlink" title="Spring MVC 总体流程"></a>Spring MVC 总体流程</h2><p>首先我们来看看 Spring MVC 中处理流程</p>]]></content>
+    <content type="html"><![CDATA[<p>[TOC]</p><p>前两天看了 Spring IOC 容器的源码，了解了容器是怎么初始化，Spring Beans 的生命周期，以及初始化时很多设计模式的使用。这篇文章将带大家阅读 Spring MVC 处理请求的流程源码（有理解不当之处请谅解），在阅读 Spring MVC 源码之前，建议读者先阅读这一篇文章 <a href="[https://rayyq.github.io/2019/05/27/Spring-IOC-%E5%AE%B9%E5%99%A8%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/](https://rayyq.github.io/2019/05/27/Spring-IOC-容器源码分析/">Spring IOC 容器源码分析</a>)，这将有助于读者理解 Spring MVC 中部分源码。</p><blockquote><p>本文采用的源码版本为 <code>5.0.x.RELEASE</code></p></blockquote><a id="more"></a><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>Spring MVC 是基于 <code>Servlet</code> 开发的一个 Web 框架，其核心为 <code>DispatcherServlet</code>，我们先来看一下它的继承结构。</p> <center><img src="1.png"></center><p>很明显，DispatcherServlet 中一定封装了 <code>Servlet</code> 的方法，这也能说明为什么 Spring MVC 是一个基于 <code>Sevlet</code>开发的 Web MVC 框架了。</p><h3 id="Servlet-生命周期"><a href="#Servlet-生命周期" class="headerlink" title="Servlet 生命周期"></a>Servlet 生命周期</h3><p>在往下分析之前，我们先了解一下 Servlet 的生命周期方法（假设读者忘记或者对<code>Servlet</code> 生命周期不熟悉）：</p><ul><li><strong>init</strong>：<code>Servlet</code> 创建对象之后调用</li><li><strong>service</strong>：<code>Servlet</code> 对象被 <code>HTTP</code> 请求访问时调用</li><li><strong>destroy</strong>：<code>Servlet</code> 对象被销毁之前调用</li></ul><h2 id="Spring-MVC-总体流程"><a href="#Spring-MVC-总体流程" class="headerlink" title="Spring MVC 总体流程"></a>Spring MVC 总体流程</h2><p>首先我们来看看 Spring MVC 中处理流程</p>]]></content>
     
     <summary type="html">
     
