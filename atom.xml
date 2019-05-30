@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://keanu96.github.io/"/>
-  <updated>2019-05-29T12:00:58.576Z</updated>
+  <updated>2019-05-30T14:57:29.882Z</updated>
   <id>http://keanu96.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>104.Maximum Depth of Binary Tree</title>
+    <link href="http://keanu96.github.io/maximum-depth-of-binary-tree/"/>
+    <id>http://keanu96.github.io/maximum-depth-of-binary-tree/</id>
+    <published>2019-05-30T08:06:54.000Z</published>
+    <updated>2019-05-30T14:57:29.882Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><strong>Title</strong>：104 - Maximum Depth of Binary Tree - Easy</p></blockquote><a id="more"></a><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a binary tree, find its maximum depth.</p><p>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>解题思路：如果给我们的二叉树为 <code>null</code>，则返回 <code>0</code> 。如果不为空，则二叉树的深度至少为 <code>1</code>，再将每个节点的左子节点和又子节点进行递归，查询出深度最大的一条路径。</p><p>具体代码如下：（<strong>题目过于简单</strong>）</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span> + Math.max(maxDepth(root.left),maxDepth(root.right));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Title&lt;/strong&gt;：104 - Maximum Depth of Binary Tree - Easy&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://keanu96.github.io/categories/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://keanu96.github.io/categories/Leetcode/Easy/"/>
+    
+    
+      <category term="Algorithm" scheme="http://keanu96.github.io/tags/Algorithm/"/>
+    
+      <category term="Binary Tree" scheme="http://keanu96.github.io/tags/Binary-Tree/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring MVC 源码分析</title>
