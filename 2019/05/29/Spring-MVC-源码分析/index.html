@@ -100,29 +100,20 @@
 
 
 
-  <script>
-  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
-  daovoice('init', {
-      app_id: "55b9b844"
-    });
-  daovoice('update');
-  </script>
-
-
   <meta name="description" content="[TOC] 前两天看了 Spring IOC 容器的源码，了解了容器是怎么初始化，Spring Beans 的生命周期，以及初始化时很多设计模式的使用。这篇文章将带大家阅读 Spring MVC 处理请求的流程源码（有理解不当之处请谅解），在阅读 Spring MVC 源码之前，建议读者先阅读这一篇文章 Spring IOC 容器源码分析)，这将有助于读者理解 Spring MVC 中部分源码。">
 <meta name="keywords" content="Spring,Spring MVC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring MVC 源码分析">
-<meta property="og:url" content="http://rayyq.github.io/2019/05/29/Spring-MVC-源码分析/index.html">
+<meta property="og:url" content="http://keanu96.github.io/2019/05/29/Spring-MVC-源码分析/index.html">
 <meta property="og:site_name" content="Keanu">
 <meta property="og:description" content="[TOC] 前两天看了 Spring IOC 容器的源码，了解了容器是怎么初始化，Spring Beans 的生命周期，以及初始化时很多设计模式的使用。这篇文章将带大家阅读 Spring MVC 处理请求的流程源码（有理解不当之处请谅解），在阅读 Spring MVC 源码之前，建议读者先阅读这一篇文章 Spring IOC 容器源码分析)，这将有助于读者理解 Spring MVC 中部分源码。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://rayyq.github.io/2019/05/29/Spring-MVC-源码分析/1.png">
+<meta property="og:image" content="http://keanu96.github.io/2019/05/29/Spring-MVC-源码分析/1.png">
 <meta property="og:updated_time" content="2019-05-29T12:00:58.576Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring MVC 源码分析">
 <meta name="twitter:description" content="[TOC] 前两天看了 Spring IOC 容器的源码，了解了容器是怎么初始化，Spring Beans 的生命周期，以及初始化时很多设计模式的使用。这篇文章将带大家阅读 Spring MVC 处理请求的流程源码（有理解不当之处请谅解），在阅读 Spring MVC 源码之前，建议读者先阅读这一篇文章 Spring IOC 容器源码分析)，这将有助于读者理解 Spring MVC 中部分源码。">
-<meta name="twitter:image" content="http://rayyq.github.io/2019/05/29/Spring-MVC-源码分析/1.png">
+<meta name="twitter:image" content="http://keanu96.github.io/2019/05/29/Spring-MVC-源码分析/1.png">
 
 
 
@@ -132,7 +123,7 @@
 
   
   
-  <link rel="canonical" href="http://rayyq.github.io/2019/05/29/Spring-MVC-源码分析/">
+  <link rel="canonical" href="http://keanu96.github.io/2019/05/29/Spring-MVC-源码分析/">
 
 
 
@@ -398,7 +389,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://rayyq.github.io/2019/05/29/Spring-MVC-源码分析/">
+    <link itemprop="mainEntityOfPage" href="http://keanu96.github.io/2019/05/29/Spring-MVC-源码分析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Keanu">
@@ -994,7 +985,7 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "http://rayyq.github.io/2019/05/29/Spring-MVC-源码分析/";
+    this.page.url = "http://keanu96.github.io/2019/05/29/Spring-MVC-源码分析/";
     this.page.identifier = "2019/05/29/Spring-MVC-源码分析/";
     this.page.title = 'Spring MVC 源码分析';
     };
@@ -1362,6 +1353,8 @@
     })();
   </script>
 
+
+  
 
   
 
