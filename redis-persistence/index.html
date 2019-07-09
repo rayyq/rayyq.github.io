@@ -100,19 +100,19 @@
 
 
 
-  <meta name="description" content="Redis 是一个基于内存的数据库，数据都是存储在内存当中，这样当服务器宕机或者程序异常退出时，会有大量数据丢失，所以为了避免数据丢失，需要将数据持久化到到硬盘中，Redis 的持久化就是将内存中的数据写入到磁盘中进行存储，这样 Redis 在下次重启时可以利用持久化文件来进行数据恢复。 Redis 提供了两种数据持久化方案：  数据快照：Redis RDB 命令日志：Redis AOF  Red">
-<meta name="keywords" content="Java,Tech">
+  <meta name="description" content="Redis 是一个基于内存的数据库，数据都是存储在内存当中，这样当服务器宕机或者程序异常退出时，会有大量数据丢失，所以为了避免数据丢失，需要将数据持久化到到硬盘中，Redis 的持久化就是将内存中的数据写入到磁盘中进行存储，这样 Redis 在下次重启时可以利用持久化文件来进行数据恢复。">
+<meta name="keywords" content="Redis,Redis 持久化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redis-persistence">
 <meta property="og:url" content="http://keanu96.github.io/redis-persistence/index.html">
 <meta property="og:site_name" content="Keanu">
-<meta property="og:description" content="Redis 是一个基于内存的数据库，数据都是存储在内存当中，这样当服务器宕机或者程序异常退出时，会有大量数据丢失，所以为了避免数据丢失，需要将数据持久化到到硬盘中，Redis 的持久化就是将内存中的数据写入到磁盘中进行存储，这样 Redis 在下次重启时可以利用持久化文件来进行数据恢复。 Redis 提供了两种数据持久化方案：  数据快照：Redis RDB 命令日志：Redis AOF  Red">
+<meta property="og:description" content="Redis 是一个基于内存的数据库，数据都是存储在内存当中，这样当服务器宕机或者程序异常退出时，会有大量数据丢失，所以为了避免数据丢失，需要将数据持久化到到硬盘中，Redis 的持久化就是将内存中的数据写入到磁盘中进行存储，这样 Redis 在下次重启时可以利用持久化文件来进行数据恢复。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://keanu96.github.io/redis-persistence/redis1.png">
-<meta property="og:updated_time" content="2019-07-09T12:29:11.895Z">
+<meta property="og:updated_time" content="2019-07-09T12:58:16.810Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis-persistence">
-<meta name="twitter:description" content="Redis 是一个基于内存的数据库，数据都是存储在内存当中，这样当服务器宕机或者程序异常退出时，会有大量数据丢失，所以为了避免数据丢失，需要将数据持久化到到硬盘中，Redis 的持久化就是将内存中的数据写入到磁盘中进行存储，这样 Redis 在下次重启时可以利用持久化文件来进行数据恢复。 Redis 提供了两种数据持久化方案：  数据快照：Redis RDB 命令日志：Redis AOF  Red">
+<meta name="twitter:description" content="Redis 是一个基于内存的数据库，数据都是存储在内存当中，这样当服务器宕机或者程序异常退出时，会有大量数据丢失，所以为了避免数据丢失，需要将数据持久化到到硬盘中，Redis 的持久化就是将内存中的数据写入到磁盘中进行存储，这样 Redis 在下次重启时可以利用持久化文件来进行数据恢复。">
 <meta name="twitter:image" content="http://keanu96.github.io/redis-persistence/redis1.png">
 
 
@@ -432,7 +432,7 @@
                 
               
 
-              <time title="Created: 2019-07-09 21:27:26 / Modified: 20:29:11" itemprop="dateCreated datePublished" datetime="2019-07-09T21:27:26+08:00">2019-07-09</time>
+              <time title="Created: 2019-07-09 21:27:26 / Modified: 20:58:16" itemprop="dateCreated datePublished" datetime="2019-07-09T21:27:26+08:00">2019-07-09</time>
             
 
             
@@ -442,6 +442,24 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -513,6 +531,7 @@
 
       
         <p>Redis 是一个基于内存的数据库，数据都是存储在内存当中，这样当服务器宕机或者程序异常退出时，会有大量数据丢失，所以为了避免数据丢失，需要将数据持久化到到硬盘中，Redis 的持久化就是将内存中的数据写入到磁盘中进行存储，这样 Redis 在下次重启时可以利用持久化文件来进行数据恢复。</p>
+<a id="more"></a>
 <p>Redis 提供了两种数据持久化方案：</p>
 <ul>
 <li>数据快照：<strong>Redis RDB</strong></li>
@@ -593,6 +612,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Redis/" rel="tag"><i class="fa fa-tag"></i> Redis</a>
+          
+            <a href="/tags/Redis-持久化/" rel="tag"><i class="fa fa-tag"></i> Redis 持久化</a>
+          
+        </div>
       
 
       
@@ -712,7 +739,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -739,7 +768,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
