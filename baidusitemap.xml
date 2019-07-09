@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://keanu96.github.io/redis-persistence/</loc>
+    <lastmod>2019-07-09</lastmod>
+  </url>  <url>
     <loc>http://keanu96.github.io/maximum-depth-of-binary-tree/</loc>
     <lastmod>2019-05-30</lastmod>
   </url>  <url>

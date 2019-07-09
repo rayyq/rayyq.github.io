@@ -100,17 +100,20 @@
 
 
 
-  <meta name="description" content="Keanu 的技术小记">
+  <meta name="description" content="Redis 是一个基于内存的数据库，数据都是存储在内存当中，这样当服务器宕机或者程序异常退出时，会有大量数据丢失，所以为了避免数据丢失，需要将数据持久化到到硬盘中，Redis 的持久化就是将内存中的数据写入到磁盘中进行存储，这样 Redis 在下次重启时可以利用持久化文件来进行数据恢复。 Redis 提供了两种数据持久化方案：  数据快照：Redis RDB 命令日志：Redis AOF  Red">
 <meta name="keywords" content="Java,Tech">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Keanu">
-<meta property="og:url" content="http://keanu96.github.io/archives/2019/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redis-persistence">
+<meta property="og:url" content="http://keanu96.github.io/redis-persistence/index.html">
 <meta property="og:site_name" content="Keanu">
-<meta property="og:description" content="Keanu 的技术小记">
+<meta property="og:description" content="Redis 是一个基于内存的数据库，数据都是存储在内存当中，这样当服务器宕机或者程序异常退出时，会有大量数据丢失，所以为了避免数据丢失，需要将数据持久化到到硬盘中，Redis 的持久化就是将内存中的数据写入到磁盘中进行存储，这样 Redis 在下次重启时可以利用持久化文件来进行数据恢复。 Redis 提供了两种数据持久化方案：  数据快照：Redis RDB 命令日志：Redis AOF  Red">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://keanu96.github.io/redis-persistence/redis1.png">
+<meta property="og:updated_time" content="2019-07-09T12:29:11.895Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Keanu">
-<meta name="twitter:description" content="Keanu 的技术小记">
+<meta name="twitter:title" content="redis-persistence">
+<meta name="twitter:description" content="Redis 是一个基于内存的数据库，数据都是存储在内存当中，这样当服务器宕机或者程序异常退出时，会有大量数据丢失，所以为了避免数据丢失，需要将数据持久化到到硬盘中，Redis 的持久化就是将内存中的数据写入到磁盘中进行存储，这样 Redis 在下次重启时可以利用持久化文件来进行数据恢复。 Redis 提供了两种数据持久化方案：  数据快照：Redis RDB 命令日志：Redis AOF  Red">
+<meta name="twitter:image" content="http://keanu96.github.io/redis-persistence/redis1.png">
 
 
 
@@ -120,7 +123,7 @@
 
   
   
-  <link rel="canonical" href="http://keanu96.github.io/archives/2019/">
+  <link rel="canonical" href="http://keanu96.github.io/redis-persistence/">
 
 
 
@@ -130,7 +133,7 @@
   };
 </script>
 
-  <title>Archive | Keanu</title>
+  <title>redis-persistence | Keanu</title>
   
 
 
@@ -178,7 +181,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -271,7 +274,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
 
     
     
@@ -366,209 +369,280 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://keanu96.github.io/redis-persistence/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Keanu">
+      <meta itemprop="description" content="Keanu 的技术小记">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keanu">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h2 class="post-title" itemprop="name headline">redis-persistence
+
+              
+            
+          </h2>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-09 21:27:26 / Modified: 20:29:11" itemprop="dateCreated datePublished" datetime="2019-07-09T21:27:26+08:00">2019-07-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
           
-        
-        Um..! 4 posts in total. Keep on posting.
-      </span>
-      
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h2 class="archive-year" id="archive-year-2019">2019</h2>
-          </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/redis-persistence/" itemprop="url">
             
-              <span itemprop="name">redis-persistence</span>
             
-          </a>
-        
-      </h3>
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/redis-persistence/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="redis-persistence/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-09T21:27:26+08:00" content="2019-07-09">
-          07-09
-        </time>
-      </div>
+          
+          
 
-    </header>
-  </article>
+          
 
+          
+            <div class="post-symbolscount">
+              
 
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">4.7k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">4 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/maximum-depth-of-binary-tree/" itemprop="url">
-            
-              <span itemprop="name">104.Maximum Depth of Binary Tree</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-30T16:06:54+08:00" content="2019-05-30">
-          05-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/Spring-MVC-源码分析/" itemprop="url">
-            
-              <span itemprop="name">Spring MVC 源码分析</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-29T20:50:02+08:00" content="2019-05-29">
-          05-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>Redis 是一个基于内存的数据库，数据都是存储在内存当中，这样当服务器宕机或者程序异常退出时，会有大量数据丢失，所以为了避免数据丢失，需要将数据持久化到到硬盘中，Redis 的持久化就是将内存中的数据写入到磁盘中进行存储，这样 Redis 在下次重启时可以利用持久化文件来进行数据恢复。</p>
+<p>Redis 提供了两种数据持久化方案：</p>
+<ul>
+<li>数据快照：<strong>Redis RDB</strong></li>
+<li>命令日志：<strong>Redis AOF</strong></li>
+</ul>
+<p>Redis 中允许两种方案结合使用，也允许两者同时关闭。</p>
+<h1 id="RDB-持久化"><a href="#RDB-持久化" class="headerlink" title="RDB 持久化"></a>RDB 持久化</h1><p>RDB持久化是 Redis 默认的持久化方式，它是将<strong>当前内存</strong>中<strong>某个时间点</strong>的数据生成快照存储在硬盘上，存储的文件后缀为 rdb，Redis 重启时，可以读取快照文件来恢复数据。rdb 是一个经过压缩的<strong>二进制文件</strong>，采用 RDB 持久化时服务器只会保存一个 rdb 文件，这样使维护更加简单。</p>
+<p>每次进行 RDB 持久化时，Redis 都是在某个时间点将数据写入一个临时文件（全量），当持久化结束后，用这个临时文件替换上次持久化的文件。</p>
+<h2 id="RDB-持久化流程"><a href="#RDB-持久化流程" class="headerlink" title="RDB 持久化流程"></a>RDB 持久化流程</h2><p>RDB 持久化的触发分为<strong>手动触发</strong>和<strong>自动触发</strong>两种形式。</p>
+<h3 id="手动触发"><a href="#手动触发" class="headerlink" title="手动触发"></a>手动触发</h3><p>在 Redis 中，save 和 bgsave 命令都可以生成 rdb 文件。</p>
+<ul>
+<li>save : 会阻塞 Redis 服务器进程，直到 rdb 文件创建完毕为止，在 Redis 服务器阻塞期间，服务器不能处理任何命令请求</li>
+<li>bgsave : 会 fork 一个子进程来创建 rdb 文件，父进程可以继续处理命令请求（fork 子进程期间，服务器也处于阻塞状态）</li>
+</ul>
+<p>bgsave 命令执行流程如下：</p>
+<p><center><img style="border-radius: 0.5125em; box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="redis1.png"><br><div style="color:orange; border-bottom: 1px solid #d9d9d9;display: inline-block; color: #999; padding: 2px;">Redis bgsave 执行流程</div><center></center></center></p>
+<ul>
+<li>执行 bgsave 命令，父进程会判断当前是否存在正在执行的子进程，如 RDB/AOF 子进程，如果存在，则 bgave 命令直接返回</li>
+<li>父进程执行 fork 操作创建子进程，fork 操作过程中父进程会阻塞，通过 <code>info stats</code> 命令 查看 <code>latest_fork_usec</code> 选项，可以获取最近一个 fork 操作的耗时，单位为毫秒</li>
+<li>父进程 fork 完成后，bgsave 命令返回 Background saving started 信息并不会阻塞父进程，父进程可以继续处理其他命令请求</li>
+<li>子进程创建 rdb 文件，根据父进程的内存生成临时快照文件，完成后对原有文件进行原子替换</li>
+<li>进程发送信号给父进程表示完成，父进程更新统计信息</li>
+</ul>
+<h3 id="自动触发"><a href="#自动触发" class="headerlink" title="自动触发"></a>自动触发</h3><p>自动触发最常见的情况是在配置文件中通过 <code>save m n</code>，指定当 m 秒内发生 n 次变化时，会触发 RDB 持久化，默认采用 bgsave 策略。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 快照的文件名</span><br><span class="line">dbfilename dump.rdb</span><br><span class="line"></span><br><span class="line"># 存放快照的目录</span><br><span class="line">dir ./</span><br><span class="line"></span><br><span class="line"># 在进行快照备份时,是否进行压缩。</span><br><span class="line"># yes：压缩，但是需要一些cpu的消耗。</span><br><span class="line"># no：不压缩，需要更多的磁盘空间。</span><br><span class="line">rdbcompression yes</span><br><span class="line"></span><br><span class="line"># 是否开启RDB文件的校验，在写入文件和读取文件时都起作用,关闭时，写入和启动文件有大约10%的性能提升，但无法检查RDB的损坏情况</span><br><span class="line">rdbchecksum yes</span><br><span class="line"></span><br><span class="line">#自动触发</span><br><span class="line">#900秒后且至少1个key发生变化时创建快照  </span><br><span class="line">save 900 1  </span><br><span class="line">#300秒后且至少10个key发生变化时创建快照  </span><br><span class="line">save 300 10  </span><br><span class="line">#60秒后且至少10000个key发生变化时创建快照  </span><br><span class="line">save 60 10000</span><br></pre></td></tr></table></figure>
+<h2 id="RDB-持久化优缺点"><a href="#RDB-持久化优缺点" class="headerlink" title="RDB 持久化优缺点"></a>RDB 持久化优缺点</h2><h3 id="RDB-优势"><a href="#RDB-优势" class="headerlink" title="RDB 优势"></a>RDB 优势</h3><blockquote>
+<ul>
+<li>RDB is a very compact single-file point-in-time representation of your Redis data. RDB files are perfect for backups. For instance you may want to archive your RDB files every hour for the latest 24 hours, and to save an RDB snapshot every day for 30 days. This allows you to easily restore different versions of the data set in case of disasters.</li>
+<li>RDB is very good for disaster recovery, being a single compact file can be transferred to far data centers, or on Amazon S3 (possibly encrypted).</li>
+<li>RDB maximizes Redis performances since the only work the Redis parent process needs to do in order to persist is forking a child that will do all the rest. The parent instance will never perform disk I/O or alike.</li>
+<li>RDB allows faster restarts with big datasets compared to AOF.</li>
+</ul>
+</blockquote>
+<p>这是在 Redis 官网中对于 RDB 持久化优点的一段描述，RDB文件是一个非常紧凑的单文件，描述了某个时间点的数据，所以它非常适用于备份。并且它很适用于灾难恢复，因为它能存储不同版本的数据集，能够让你在发生灾难时回复不同版本的数据集。</p>
+<h3 id="RDB-缺点"><a href="#RDB-缺点" class="headerlink" title="RDB 缺点"></a>RDB 缺点</h3><blockquote>
+<ul>
+<li>RDB is NOT good if you need to minimize the chance of data loss in case Redis stops working (for example after a power outage). You can configure different <em>save points</em> where an RDB is produced (for instance after at least five minutes and 100 writes against the data set, but you can have multiple save points). However you’ll usually create an RDB snapshot every five minutes or more, so in case of Redis stopping working without a correct shutdown for any reason you should be prepared to lose the latest minutes of data.</li>
+<li>RDB needs to fork() often in order to persist on disk using a child process. Fork() can be time consuming if the dataset is big, and may result in Redis to stop serving clients for some millisecond or even for one second if the dataset is very big and the CPU performance not great. AOF also needs to fork() but you can tune how often you want to rewrite your logs without any trade-off on durability.</li>
+</ul>
+</blockquote>
+<p>官网已经声明了，如果你想最小化数据丢失，RBD 不是一个好的选择，因为 RDB 是在一定间隔时间做一次备份，如果 Redis 意外宕机，就会丢失掉最后一次备份之后的所有数据。</p>
+<p>RDB 默认采用 bgsave 来进行持久化，每次 bgsave 每次运行都要调用 fork() 创建一个子进程，而如果内存中的数据集非常大，fork() 会因为要为子进程产生一份虚拟空间表而花费较长的时间；如果此时客户端请求数量非常大的话，会导致较多的写时拷贝操作；在 RDB 持久化操作过程中，每一个数据都会导致 write() 系统调用，CPU 资源很紧张。因此，如果在一台物理机上部署多个 redis，应该避免同时持久化操作。</p>
+<p><strong>那如何知道 BGSAVE 占用了多少内存？</strong>子进程在结束之前，读取了自身私有脏数据 Private_Dirty 的大小，这样做是为了让用户看到 redis 的持久化进程所占用了有多少的空间。在父进程 fork 产生子进程过后，父子进程虽然有不同的虚拟空间，但物理空间上是共存的，直至父进程或者子进程修改内存数据为止，所以脏数据 Private_Dirty 可以近似的认为是子进程，即持久化进程占用的空间。</p>
+<h1 id="AOF-持久化"><a href="#AOF-持久化" class="headerlink" title="AOF 持久化"></a>AOF 持久化</h1><p>AOF 即 Append-only file 的缩写，它将 “操作 + 数据” 以格式化指令的方式追加到操作日志文件的尾部。也就是说，Redis 是将所有服务器中执行的命令追加到 AOF 文件中，而在 append 操作返回之后，才进行实际的数据变更。</p>
+<h2 id="AOF-配置"><a href="#AOF-配置" class="headerlink" title="AOF 配置"></a>AOF 配置</h2><p>Redis 默认是没有开启 AOF 持久化的，需要修改 redis.conf 来开启，配置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">##此选项为aof功能的开关，默认为“no”，可以通过“yes”来开启aof功能  </span><br><span class="line">##只有在“yes”下，aof重写/文件同步等特性才会生效  </span><br><span class="line">appendonly yes  </span><br><span class="line"></span><br><span class="line">##指定aof文件名称  </span><br><span class="line">appendfilename appendonly.aof  </span><br><span class="line"></span><br><span class="line">##指定aof操作中文件同步策略，有三个合法值：always everysec no,默认为everysec  </span><br><span class="line">appendfsync everysec  </span><br><span class="line">##在aof-rewrite期间，appendfsync是否暂缓文件同步，&quot;no&quot;表示“不暂缓”，“yes”表示“暂缓”，默认为“no”  </span><br><span class="line">no-appendfsync-on-rewrite no  </span><br><span class="line"></span><br><span class="line">##aof文件rewrite触发的最小文件尺寸(mb,gb),只有大于此aof文件大于此尺寸是才会触发rewrite，默认“64mb”，建议“512mb”  </span><br><span class="line">auto-aof-rewrite-min-size 64mb  </span><br><span class="line"></span><br><span class="line">##相对于“上一次”rewrite，本次rewrite触发时aof文件应该增长的百分比。  </span><br><span class="line">##每一次rewrite之后，redis都会记录下此时“新aof”文件的大小(例如A)，那么当aof文件增长到A*(1 + p)之后  </span><br><span class="line">##触发下一次rewrite，每一次aof记录的添加，都会检测当前aof文件的尺寸。</span><br><span class="line">auto-aof-rewrite-percentage 100</span><br></pre></td></tr></table></figure>
+<h2 id="AOF-文件恢复"><a href="#AOF-文件恢复" class="headerlink" title="AOF 文件恢复"></a>AOF 文件恢复</h2><h2 id="AOF-重写"><a href="#AOF-重写" class="headerlink" title="AOF 重写"></a>AOF 重写</h2><h2 id="AOF-优缺点"><a href="#AOF-优缺点" class="headerlink" title="AOF 优缺点"></a>AOF 优缺点</h2><blockquote>
+<p>参考链接：<br><br><a href="https://redis.io/topics/persistence" target="_blank" rel="noopener">Redis persistence</a><br><br><a href="http://oldblog.antirez.com/post/redis-persistence-demystified.html" target="_blank" rel="noopener">Redis persistence demystified</a><br><br><a href="https://www.cnblogs.com/kismetv/p/9137897.html" target="_blank" rel="noopener">深入学习Redis（2）：持久化</a><br><br><a href="https://www.cnblogs.com/ysocean/p/9114268.html" target="_blank" rel="noopener">Redis详解（六）—— RDB 持久化</a><br><br><a href="https://yq.aliyun.com/articles/617663" target="_blank" rel="noopener">Redis详解（七）—— AOF 持久化</a><br></p>
+</blockquote>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/Spring-IOC-容器源码分析/" itemprop="url">
-            
-              <span itemprop="name">Spring IOC 容器源码分析</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-27T20:12:58+08:00" content="2019-05-27">
-          05-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+
+    
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/maximum-depth-of-binary-tree/" rel="next" title="104.Maximum Depth of Binary Tree">
+                <i class="fa fa-chevron-left"></i> 104.Maximum Depth of Binary Tree
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -588,8 +662,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -730,6 +813,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RDB-持久化"><span class="nav-number">1.</span> <span class="nav-text">RDB 持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RDB-持久化流程"><span class="nav-number">1.1.</span> <span class="nav-text">RDB 持久化流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#手动触发"><span class="nav-number">1.1.1.</span> <span class="nav-text">手动触发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动触发"><span class="nav-number">1.1.2.</span> <span class="nav-text">自动触发</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RDB-持久化优缺点"><span class="nav-number">1.2.</span> <span class="nav-text">RDB 持久化优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RDB-优势"><span class="nav-number">1.2.1.</span> <span class="nav-text">RDB 优势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RDB-缺点"><span class="nav-number">1.2.2.</span> <span class="nav-text">RDB 缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AOF-持久化"><span class="nav-number">2.</span> <span class="nav-text">AOF 持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#AOF-配置"><span class="nav-number">2.1.</span> <span class="nav-text">AOF 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AOF-文件恢复"><span class="nav-number">2.2.</span> <span class="nav-text">AOF 文件恢复</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AOF-重写"><span class="nav-number">2.3.</span> <span class="nav-text">AOF 重写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AOF-优缺点"><span class="nav-number">2.4.</span> <span class="nav-text">AOF 优缺点</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -877,6 +977,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
 
   
 
@@ -895,9 +999,28 @@
   <script id="dsq-count-scr" src="https://rayyq.disqus.com/count.js" async></script>
 
 
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://keanu96.github.io/redis-persistence/";
+    this.page.identifier = "redis-persistence/";
+    this.page.title = 'redis-persistence';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://rayyq.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    loadComments();
+  
+</script>
 
 
 
+
+
+  
 
 
   
