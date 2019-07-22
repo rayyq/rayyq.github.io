@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://keanu96.github.io/jvm-garbage-collection/</loc>
+    
+    <lastmod>2019-07-22T13:22:04.070Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://keanu96.github.io/build-hexo-blog/</loc>
     
     <lastmod>2019-07-21T08:00:55.950Z</lastmod>
