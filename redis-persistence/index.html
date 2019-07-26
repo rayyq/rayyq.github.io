@@ -8,7 +8,7 @@
 
 
     <meta name="description" content="Redis 是一个基于内存的数据库，数据都是存储在内存当中，这样当服务器宕机或者程序异常退出时，会有大量数据丢失，所以为了避免数据丢失，需要将数据持久化到到硬盘中，Redis 的持久化就是将内存中的数据写入到磁盘中进行存储，这样 Redis 在下次重启时可以利用持久化文件来进行数据恢复。">
-<meta name="keywords" content="Redis">
+<meta name="keywords" content="Redis 持久化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis学习 - 持久化机制">
 <meta property="og:url" content="http://keanu96.github.io/redis-persistence/index.html">
@@ -16,7 +16,7 @@
 <meta property="og:description" content="Redis 是一个基于内存的数据库，数据都是存储在内存当中，这样当服务器宕机或者程序异常退出时，会有大量数据丢失，所以为了避免数据丢失，需要将数据持久化到到硬盘中，Redis 的持久化就是将内存中的数据写入到磁盘中进行存储，这样 Redis 在下次重启时可以利用持久化文件来进行数据恢复。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://keanu96.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-07-09T13:06:48.431Z">
+<meta property="og:updated_time" content="2019-07-26T12:08:24.437Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis学习 - 持久化机制">
 <meta name="twitter:description" content="Redis 是一个基于内存的数据库，数据都是存储在内存当中，这样当服务器宕机或者程序异常退出时，会有大量数据丢失，所以为了避免数据丢失，需要将数据持久化到到硬盘中，Redis 的持久化就是将内存中的数据写入到磁盘中进行存储，这样 Redis 在下次重启时可以利用持久化文件来进行数据恢复。">
@@ -126,6 +126,10 @@
                     
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -148,7 +152,7 @@
                 <time class="level-item has-text-grey" datetime="2019-07-09T13:27:26.000Z">2019-07-09</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Redis/">Redis</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Redis/Redis-持久化/">Redis 持久化</a>
+                <a class="has-link-grey -link" href="/categories/Redis/">Redis</a>
                 </div>
                 
                 
@@ -226,7 +230,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/Redis/">Redis</a>
+                    <a class="has-link-grey -link" href="/tags/Redis-持久化/">Redis 持久化</a>
                 </div>
             </div>
         </div>
@@ -368,7 +372,7 @@
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        9
+                        6
                     </p>
                 </div>
             </div>
@@ -378,7 +382,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        6
+                        7
                     </p>
                 </div>
             </div>
@@ -403,6 +407,65 @@
 </div>
     
         
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#RDB-持久化">
+        <span class="has-mr-6">1</span>
+        <span>RDB 持久化</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#RDB-持久化流程">
+        <span class="has-mr-6">1.1</span>
+        <span>RDB 持久化流程</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#手动触发">
+        <span class="has-mr-6">1.1.1</span>
+        <span>手动触发</span>
+        </a></li><li>
+        <a class="is-flex" href="#自动触发">
+        <span class="has-mr-6">1.1.2</span>
+        <span>自动触发</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#RDB-持久化优缺点">
+        <span class="has-mr-6">1.2</span>
+        <span>RDB 持久化优缺点</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#RDB-优势">
+        <span class="has-mr-6">1.2.1</span>
+        <span>RDB 优势</span>
+        </a></li><li>
+        <a class="is-flex" href="#RDB-缺点">
+        <span class="has-mr-6">1.2.2</span>
+        <span>RDB 缺点</span>
+        </a></li></ul></li></ul></li><li>
+        <a class="is-flex" href="#AOF-持久化">
+        <span class="has-mr-6">2</span>
+        <span>AOF 持久化</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#AOF-配置">
+        <span class="has-mr-6">2.1</span>
+        <span>AOF 配置</span>
+        </a></li><li>
+        <a class="is-flex" href="#AOF-文件恢复">
+        <span class="has-mr-6">2.2</span>
+        <span>AOF 文件恢复</span>
+        </a></li><li>
+        <a class="is-flex" href="#AOF-重写">
+        <span class="has-mr-6">2.3</span>
+        <span>AOF 重写</span>
+        </a></li><li>
+        <a class="is-flex" href="#AOF-优缺点">
+        <span class="has-mr-6">2.4</span>
+        <span>AOF 优缺点</span>
+        </a></li></ul></li></ul>
+        </div>
+    </div>
+</div>
+
     
         
 
@@ -491,39 +554,15 @@
             <span class="level-end">
                 <span class="level-item tag">1</span>
             </span>
-        </a><ul><li>
-        <a class="level is-marginless" href="/categories/Redis/Redis-持久化/">
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Spring/">
             <span class="level-start">
-                <span class="level-item">Redis 持久化</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li></ul></li><li>
-        <a class="level is-marginless" href="/categories/Spring-Framework/">
-            <span class="level-start">
-                <span class="level-item">Spring Framework</span>
+                <span class="level-item">Spring</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">2</span>
             </span>
-        </a><ul><li>
-        <a class="level is-marginless" href="/categories/Spring-Framework/Spring-IOC/">
-            <span class="level-start">
-                <span class="level-item">Spring IOC</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Spring-Framework/Spring-MVC/">
-            <span class="level-start">
-                <span class="level-item">Spring MVC</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li></ul></li>
+        </a></li>
             </ul>
         </div>
     </div>
@@ -538,7 +577,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Binary-Tree/" style="font-size: 10px;">Binary Tree</a> <a href="/tags/Hexo-博客搭建/" style="font-size: 10px;">Hexo 博客搭建</a> <a href="/tags/Java-GC/" style="font-size: 10px;">Java GC</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Spring-Framework/" style="font-size: 20px;">Spring Framework</a>
+        <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Binary-Tree/" style="font-size: 10px;">Binary Tree</a> <a href="/tags/Hexo-博客搭建/" style="font-size: 10px;">Hexo 博客搭建</a> <a href="/tags/Java-GC/" style="font-size: 10px;">Java GC</a> <a href="/tags/Redis-持久化/" style="font-size: 10px;">Redis 持久化</a> <a href="/tags/Spring-IOC/" style="font-size: 10px;">Spring IOC</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a>
     </div>
 </div>
 
@@ -601,7 +640,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-09T13:27:26.000Z">2019-07-09</time></div>
                     <a href="/redis-persistence/" class="has-link-black-ter is-size-6">Redis学习 - 持久化机制</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Redis/">Redis</a> / <a class="has-link-grey -link" href="/categories/Redis/Redis-持久化/">Redis 持久化</a>
+                        <a class="has-link-grey -link" href="/categories/Redis/">Redis</a>
                     </p>
                 </div>
             </div>
@@ -639,7 +678,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-29T12:50:02.000Z">2019-05-29</time></div>
                     <a href="/Spring-MVC-源码分析/" class="has-link-black-ter is-size-6">Spring MVC 源码分析</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Spring-Framework/">Spring Framework</a> / <a class="has-link-grey -link" href="/categories/Spring-Framework/Spring-MVC/">Spring MVC</a>
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
                     </p>
                 </div>
             </div>
@@ -721,16 +760,23 @@
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Redis/">
-                        <span class="tag">Redis</span>
+                    <a class="tags has-addons" href="/tags/Redis-持久化/">
+                        <span class="tag">Redis 持久化</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Spring-Framework/">
-                        <span class="tag">Spring Framework</span>
-                        <span class="tag is-grey">2</span>
+                    <a class="tags has-addons" href="/tags/Spring-IOC/">
+                        <span class="tag">Spring IOC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-MVC/">
+                        <span class="tag">Spring MVC</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -756,7 +802,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Binary-Tree/" style="font-size: 10px;">Binary Tree</a> <a href="/tags/Hexo-博客搭建/" style="font-size: 10px;">Hexo 博客搭建</a> <a href="/tags/Java-GC/" style="font-size: 10px;">Java GC</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Spring-Framework/" style="font-size: 20px;">Spring Framework</a>
+        <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Binary-Tree/" style="font-size: 10px;">Binary Tree</a> <a href="/tags/Hexo-博客搭建/" style="font-size: 10px;">Hexo 博客搭建</a> <a href="/tags/Java-GC/" style="font-size: 10px;">Java GC</a> <a href="/tags/Redis-持久化/" style="font-size: 10px;">Redis 持久化</a> <a href="/tags/Spring-IOC/" style="font-size: 10px;">Spring IOC</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a>
     </div>
 </div>
 
@@ -819,7 +865,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-09T13:27:26.000Z">2019-07-09</time></div>
                     <a href="/redis-persistence/" class="has-link-black-ter is-size-6">Redis学习 - 持久化机制</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Redis/">Redis</a> / <a class="has-link-grey -link" href="/categories/Redis/Redis-持久化/">Redis 持久化</a>
+                        <a class="has-link-grey -link" href="/categories/Redis/">Redis</a>
                     </p>
                 </div>
             </div>
@@ -857,7 +903,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-29T12:50:02.000Z">2019-05-29</time></div>
                     <a href="/Spring-MVC-源码分析/" class="has-link-black-ter is-size-6">Spring MVC 源码分析</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Spring-Framework/">Spring Framework</a> / <a class="has-link-grey -link" href="/categories/Spring-Framework/Spring-MVC/">Spring MVC</a>
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
                     </p>
                 </div>
             </div>
@@ -939,16 +985,23 @@
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Redis/">
-                        <span class="tag">Redis</span>
+                    <a class="tags has-addons" href="/tags/Redis-持久化/">
+                        <span class="tag">Redis 持久化</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Spring-Framework/">
-                        <span class="tag">Spring Framework</span>
-                        <span class="tag is-grey">2</span>
+                    <a class="tags has-addons" href="/tags/Spring-IOC/">
+                        <span class="tag">Spring IOC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-MVC/">
+                        <span class="tag">Spring MVC</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
