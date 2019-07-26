@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://keanu96.github.io/build-hexo-blog/</loc>
+    
+    <lastmod>2019-07-26T13:41:45.970Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://keanu96.github.io/jvm-garbage-collection/</loc>
     
     <lastmod>2019-07-26T12:34:12.441Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>http://keanu96.github.io/redis-persistence/</loc>
     
     <lastmod>2019-07-26T12:08:24.437Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://keanu96.github.io/build-hexo-blog/</loc>
-    
-    <lastmod>2019-07-26T12:07:09.886Z</lastmod>
     
   </url>
   
