@@ -2,24 +2,24 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>104.Maximum Depth of Binary Tree - Keanu</title>
+<title>Paxos Made Simple(译文) - Keanu</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="Title：104 - Maximum Depth of Binary Tree - Easy">
-<meta name="keywords" content="Algorithm,Binary Tree">
+    <meta name="description" content="一致性算法 Paxos提出问题假设一个进程的集合可以提出值（values），一致性算法则保证了只选出所提出值中的单个值。如果没有值没提出，那就不会有值被选中。如果一个值被选中，那么进程应该能够学习到该值。共识（一致性）的安全性要求如下：  一个值只有被提出才可能被选中， 只有一个值能被选中，并且 一个进程在一个值被选中之前永远不会知道这个值是什么。  目标是保证一些被提出的值能最终被选中，并且如果">
+<meta name="keywords" content="Algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="104.Maximum Depth of Binary Tree">
-<meta property="og:url" content="http://keanu96.github.io/maximum-depth-of-binary-tree/index.html">
+<meta property="og:title" content="Paxos Made Simple(译文)">
+<meta property="og:url" content="http://keanu96.github.io/paxos-made-simple/index.html">
 <meta property="og:site_name" content="Keanu">
-<meta property="og:description" content="Title：104 - Maximum Depth of Binary Tree - Easy">
+<meta property="og:description" content="一致性算法 Paxos提出问题假设一个进程的集合可以提出值（values），一致性算法则保证了只选出所提出值中的单个值。如果没有值没提出，那就不会有值被选中。如果一个值被选中，那么进程应该能够学习到该值。共识（一致性）的安全性要求如下：  一个值只有被提出才可能被选中， 只有一个值能被选中，并且 一个进程在一个值被选中之前永远不会知道这个值是什么。  目标是保证一些被提出的值能最终被选中，并且如果">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://keanu96.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-30T14:57:29.882Z">
+<meta property="og:updated_time" content="2019-08-22T11:57:55.496Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="104.Maximum Depth of Binary Tree">
-<meta name="twitter:description" content="Title：104 - Maximum Depth of Binary Tree - Easy">
+<meta name="twitter:title" content="Paxos Made Simple(译文)">
+<meta name="twitter:description" content="一致性算法 Paxos提出问题假设一个进程的集合可以提出值（values），一致性算法则保证了只选出所提出值中的单个值。如果没有值没提出，那就不会有值被选中。如果一个值被选中，那么进程应该能够学习到该值。共识（一致性）的安全性要求如下：  一个值只有被提出才可能被选中， 只有一个值能被选中，并且 一个进程在一个值被选中之前永远不会知道这个值是什么。  目标是保证一些被提出的值能最终被选中，并且如果">
 <meta name="twitter:image" content="http://keanu96.github.io/images/og_image.png">
 
 
@@ -146,17 +146,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-05-30T08:06:54.000Z">2019-05-30</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Leetcode/">Leetcode</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Leetcode/Easy/">Easy</a>
-                </div>
+                <time class="level-item has-text-grey" datetime="2019-08-22T12:55:35.000Z">2019-08-22</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    1 分钟 读完 (大约 169 个字)
+                    11 分钟 读完 (大约 1620 个字)
                 </span>
                 
                 
@@ -165,27 +161,58 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                104.Maximum Depth of Binary Tree
+                Paxos Made Simple(译文)
             
         </h1>
         <div class="content">
-            <blockquote>
-<p><strong>Title</strong>：104 - Maximum Depth of Binary Tree - Easy</p>
-</blockquote>
+            <h1 id="一致性算法-Paxos"><a href="#一致性算法-Paxos" class="headerlink" title="一致性算法 Paxos"></a>一致性算法 Paxos</h1><h2 id="提出问题"><a href="#提出问题" class="headerlink" title="提出问题"></a>提出问题</h2><p>假设一个进程的集合可以提出值（values），一致性算法则保证了只选出所提出值中的单个值。如果没有值没提出，那就不会有值被选中。如果一个值被选中，那么进程应该能够学习到该值。共识（一致性）的安全性要求如下：</p>
+<ul>
+<li>一个值只有被提出才可能被选中，</li>
+<li>只有一个值能被选中，并且</li>
+<li>一个进程在一个值被选中之前永远不会知道这个值是什么。</li>
+</ul>
+<p>目标是保证一些被提出的值能最终被选中，并且如果一个值被选中，那么进程最终能够知道（learn）该值。</p>
+<p>我们让共识算法中的三个角色（role）由三个代理（agent）来执行：<strong>proposers</strong>，<strong>acceptors</strong>，<strong>learners</strong>。在实现中，单个进程可能不止扮演一个代理，但这里我们不关心代理和进程的映射。</p>
+<p>假设代理能够通过消息传递与另一个进行通信，使用常用的异步，非拜占庭模型，其中：</p>
+<ul>
+<li>代理以任意的速度执行，可能会因为停止而失败，也可能重启。因为所有代理都可能在一个值被选中之后失败并重启，除非某些信息能被失败重启的代理记住，否则不可能有解决方案。</li>
+<li>消息能以任意长的时间传递，可以重复，可以丢失，但是不会损坏。</li>
+</ul>
 <a id="more"></a>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a binary tree, find its maximum depth.</p>
-<p>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>解题思路：如果给我们的二叉树为 <code>null</code>，则返回 <code>0</code> 。如果不为空，则二叉树的深度至少为 <code>1</code>，再将每个节点的左子节点和又子节点进行递归，查询出深度最大的一条路径。</p>
-<p>具体代码如下：（<strong>题目过于简单</strong>）</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="hljs-comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="hljs-comment"> *     int val;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode left;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode right;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="hljs-comment"> * &#125;</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">maxDepth</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span> + Math.max(maxDepth(root.left),maxDepth(root.right));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="选中一个值（Choosing-a-Value）"><a href="#选中一个值（Choosing-a-Value）" class="headerlink" title="选中一个值（Choosing a Value）"></a>选中一个值（Choosing a Value）</h2><p>选择一个值最简单的方法就是只有一个 Acceptor 代理。Proposer 给 Acceptor 发送一个提案（Proposer），Acceptor 选择其收到的第一个建议值。这样虽然简单，但是这种解决方案一定会有单机问题（原文中是：该 Acceptor 的失败会让任何进一步的进展都不可能执行。我认为此处是指单机问题。欢迎指正^ . ^）。</p>
+<p>所以，让我们尝试另一种方法。我们用多个 Acceptor 代理代替单个 Acceptor。一个 Proposer 向一个 Acceptor 集合发送提案。一个 Acceptor 可能会接受该提案值。当一个足够大的 Acceptor 集合接受了这个建议值，则该值被选中。但是多大是足够大呢？为了保证只有一个值能被选中，我们让这个足够大的集合由任意多数派的代理集合 (majority of agents) 组成。因为任意两个多数派集合 (any two majorities) 至少有一个公共的代理，这在一个 Acceptor 最多能接受一个值时有效。</p>
+<p>在不存在失败或者消息丢失的情况下，我们想让即使只有一个建议值被提出也能被选中，这表明了这一个要求：</p>
+<blockquote>
+<p>P1. An acceptor must accept the first proposal that it receives.</p>
+<p>翻译：一个 Acceptor 必须接受它收到的第一个提案。</p>
+</blockquote>
+<p>但是这个要求引发了一个问题，不同的 Proposer 可以同时提出一些不同的提案，这就可能会造成每个提案会被相同数量的 Acceptor 接受，例如两个提案分别被半数的 Acceptor 接受，没有一个提案值被多数派的 Acceptor 所接受。而这样就无法知道选择了哪个提案值。</p>
+<p>P1 和 一个值只有被多数派的 Acceptor 接受才会被选择的要求意味着一个 Acceptor 允许接受多个提案。我们通过分配编号来追踪不同的提案，所以<strong>一个提案 (proposal) 就由编号和提案值组成</strong>。为了防止混淆，我们要求每个提案的编号都不一样。How this is achieved depends on  the implementation, so for now we just assume it。当用以一个<strong>值</strong>的 proposal 被多数派的 Acceptor 接受，该<strong>值</strong>才会被选择。这种情况下，我们称一个<strong>提案</strong>被选择。</p>
+<p>我们允许多个提案被选择，但是我们必须保证所有被选择的<strong>提案</strong>都有相同的<strong>值</strong>。通过对提案编号的归纳，足以保证：</p>
+<blockquote>
+<p>P2. If a proposal with value v is chosen,  then every higher-numbered proposal  that is  chosen has value v.</p>
+<p>翻译：如果一个提案值为 v 的提案被选择，那么每个被选择且编号比该提案大的提案的值都是 v。</p>
+</blockquote>
+<p>因为编号是被完全排序的，条件 P2 保证了只有一个<strong>值</strong>能被选择的关键性安全属性。</p>
+<p>一个提案要被选择，则必须至少被一个 Acceptor 接受，所以我们可以通过满足以下条件 (P2a) 来满足 P2：</p>
+<blockquote>
+<p>P2a.  If a proposal with value v is chosen, then every higher-numbered proposal accepted by any acceptor has value v.</p>
+<p>翻译：如果一个提案值为 v 的提案被选择，那么被任意 Acceptor 所接受的更高编号的提案的提案值都为 v。(这里说明了如果一个提案值 v 被选择，Acceptor就不再通过提案值不为 v 的提案了)</p>
+</blockquote>
+<p>我们仍然要维持 P1 确保有提案能被选择。因为通信是<strong>异步</strong>的 (上文有提到前提条件)，可能会出现一个提案被选择了，但 Acceptor <strong><em>c</em></strong> 还没有接受（accept）任何任何提案，如果这时一个新的 Proposer “醒来”并发布了一个拥有更高编号且提案值不同的提案，这时 P1 就要求 Acceptor <strong><em>c</em></strong> 接受这个提案，则违反了 P2a。为了维持 P1 和 P2a，我们需要增强 P2a：</p>
+<blockquote>
+<p>P2b. If a proposal with value v is chosen, then every higher-numbered proposal issued by any proposer has value v.</p>
+<p>翻译：如果一个提案值为 v 的提案被选择了，那么 Proposer 发布的所有更高编号的提案的提案值都为 v。（Proposer 只会提出提案值为 v 的提案）</p>
+</blockquote>
+<p>因为一个提案在被一个 Acceptor 接受之前必须要被 Proposer 提出，P2b 满足了 P2a，且满足了 P2。</p>
 
         </div>
         
             <ul class="post-copyright">
-            <li><strong>本文标题：</strong><a href="http://keanu96.github.io/maximum-depth-of-binary-tree/">104.Maximum Depth of Binary Tree</a></li>
+            <li><strong>本文标题：</strong><a href="http://keanu96.github.io/paxos-made-simple/">Paxos Made Simple(译文)</a></li>
             <li><strong>本文作者：</strong><a href="http://keanu96.github.io">Keanu</a></li>
-            <li><strong>本文链接：</strong><a href="http://keanu96.github.io/maximum-depth-of-binary-tree/">http://keanu96.github.io/maximum-depth-of-binary-tree/</a></li>
-            <li><strong>发布时间：</strong>2019-05-30</li>
+            <li><strong>本文链接：</strong><a href="http://keanu96.github.io/paxos-made-simple/">http://keanu96.github.io/paxos-made-simple/</a></li>
+            <li><strong>发布时间：</strong>2019-08-22</li>
             <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
             </ul>
         
@@ -194,7 +221,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/Algorithm/">Algorithm</a>, <a class="has-link-grey -link" href="/tags/Binary-Tree/">Binary Tree</a>
+                    <a class="has-link-grey -link" href="/tags/Algorithm/">Algorithm</a>
                 </div>
             </div>
         </div>
@@ -240,17 +267,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/redis-persistence/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Redis学习 - 持久化机制</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/Spring-MVC-源码分析/">
-                <span class="level-item">Spring MVC 源码分析</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/jvm-garbage-collection/">
+                <span class="level-item">Java 垃圾回收</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -266,8 +286,8 @@
         
 <script>
     var disqus_config = function () {
-        this.page.url = 'http://keanu96.github.io/maximum-depth-of-binary-tree/';
-        this.page.identifier = 'maximum-depth-of-binary-tree/';
+        this.page.url = 'http://keanu96.github.io/paxos-made-simple/';
+        this.page.identifier = 'paxos-made-simple/';
     };
     (function() {
         var d = document, s = d.createElement('script');  

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://keanu96.github.io/paxos-made-simple/</loc>
+    
+    <lastmod>2019-08-22T11:57:55.496Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://keanu96.github.io/build-hexo-blog/</loc>
     
     <lastmod>2019-07-26T13:41:45.970Z</lastmod>

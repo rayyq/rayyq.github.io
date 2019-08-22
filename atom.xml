@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://keanu96.github.io/"/>
-  <updated>2019-07-26T12:34:12.441Z</updated>
+  <updated>2019-08-22T11:57:55.496Z</updated>
   <id>http://keanu96.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Paxos Made Simple(译文)</title>
+    <link href="http://keanu96.github.io/paxos-made-simple/"/>
+    <id>http://keanu96.github.io/paxos-made-simple/</id>
+    <published>2019-08-22T12:55:35.000Z</published>
+    <updated>2019-08-22T11:57:55.496Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一致性算法-Paxos"><a href="#一致性算法-Paxos" class="headerlink" title="一致性算法 Paxos"></a>一致性算法 Paxos</h1><h2 id="提出问题"><a href="#提出问题" class="headerlink" title="提出问题"></a>提出问题</h2><p>假设一个进程的集合可以提出值（values），一致性算法则保证了只选出所提出值中的单个值。如果没有值没提出，那就不会有值被选中。如果一个值被选中，那么进程应该能够学习到该值。共识（一致性）的安全性要求如下：</p><ul><li>一个值只有被提出才可能被选中，</li><li>只有一个值能被选中，并且</li><li>一个进程在一个值被选中之前永远不会知道这个值是什么。</li></ul><p>目标是保证一些被提出的值能最终被选中，并且如果一个值被选中，那么进程最终能够知道（learn）该值。</p><p>我们让共识算法中的三个角色（role）由三个代理（agent）来执行：<strong>proposers</strong>，<strong>acceptors</strong>，<strong>learners</strong>。在实现中，单个进程可能不止扮演一个代理，但这里我们不关心代理和进程的映射。</p><p>假设代理能够通过消息传递与另一个进行通信，使用常用的异步，非拜占庭模型，其中：</p><ul><li>代理以任意的速度执行，可能会因为停止而失败，也可能重启。因为所有代理都可能在一个值被选中之后失败并重启，除非某些信息能被失败重启的代理记住，否则不可能有解决方案。</li><li>消息能以任意长的时间传递，可以重复，可以丢失，但是不会损坏。</li></ul><a id="more"></a><h2 id="选中一个值（Choosing-a-Value）"><a href="#选中一个值（Choosing-a-Value）" class="headerlink" title="选中一个值（Choosing a Value）"></a>选中一个值（Choosing a Value）</h2><p>选择一个值最简单的方法就是只有一个 Acceptor 代理。Proposer 给 Acceptor 发送一个提案（Proposer），Acceptor 选择其收到的第一个建议值。这样虽然简单，但是这种解决方案一定会有单机问题（原文中是：该 Acceptor 的失败会让任何进一步的进展都不可能执行。我认为此处是指单机问题。欢迎指正^ . ^）。</p><p>所以，让我们尝试另一种方法。我们用多个 Acceptor 代理代替单个 Acceptor。一个 Proposer 向一个 Acceptor 集合发送提案。一个 Acceptor 可能会接受该提案值。当一个足够大的 Acceptor 集合接受了这个建议值，则该值被选中。但是多大是足够大呢？为了保证只有一个值能被选中，我们让这个足够大的集合由任意多数派的代理集合 (majority of agents) 组成。因为任意两个多数派集合 (any two majorities) 至少有一个公共的代理，这在一个 Acceptor 最多能接受一个值时有效。</p><p>在不存在失败或者消息丢失的情况下，我们想让即使只有一个建议值被提出也能被选中，这表明了这一个要求：</p><blockquote><p>P1. An acceptor must accept the first proposal that it receives.</p><p>翻译：一个 Acceptor 必须接受它收到的第一个提案。</p></blockquote><p>但是这个要求引发了一个问题，不同的 Proposer 可以同时提出一些不同的提案，这就可能会造成每个提案会被相同数量的 Acceptor 接受，例如两个提案分别被半数的 Acceptor 接受，没有一个提案值被多数派的 Acceptor 所接受。而这样就无法知道选择了哪个提案值。</p><p>P1 和 一个值只有被多数派的 Acceptor 接受才会被选择的要求意味着一个 Acceptor 允许接受多个提案。我们通过分配编号来追踪不同的提案，所以<strong>一个提案 (proposal) 就由编号和提案值组成</strong>。为了防止混淆，我们要求每个提案的编号都不一样。How this is achieved depends on  the implementation, so for now we just assume it。当用以一个<strong>值</strong>的 proposal 被多数派的 Acceptor 接受，该<strong>值</strong>才会被选择。这种情况下，我们称一个<strong>提案</strong>被选择。</p><p>我们允许多个提案被选择，但是我们必须保证所有被选择的<strong>提案</strong>都有相同的<strong>值</strong>。通过对提案编号的归纳，足以保证：</p><blockquote><p>P2. If a proposal with value v is chosen,  then every higher-numbered proposal  that is  chosen has value v.</p><p>翻译：如果一个提案值为 v 的提案被选择，那么每个被选择且编号比该提案大的提案的值都是 v。</p></blockquote><p>因为编号是被完全排序的，条件 P2 保证了只有一个<strong>值</strong>能被选择的关键性安全属性。</p><p>一个提案要被选择，则必须至少被一个 Acceptor 接受，所以我们可以通过满足以下条件 (P2a) 来满足 P2：</p><blockquote><p>P2a.  If a proposal with value v is chosen, then every higher-numbered proposal accepted by any acceptor has value v.</p><p>翻译：如果一个提案值为 v 的提案被选择，那么被任意 Acceptor 所接受的更高编号的提案的提案值都为 v。(这里说明了如果一个提案值 v 被选择，Acceptor就不再通过提案值不为 v 的提案了)</p></blockquote><p>我们仍然要维持 P1 确保有提案能被选择。因为通信是<strong>异步</strong>的 (上文有提到前提条件)，可能会出现一个提案被选择了，但 Acceptor <strong><em>c</em></strong> 还没有接受（accept）任何任何提案，如果这时一个新的 Proposer “醒来”并发布了一个拥有更高编号且提案值不同的提案，这时 P1 就要求 Acceptor <strong><em>c</em></strong> 接受这个提案，则违反了 P2a。为了维持 P1 和 P2a，我们需要增强 P2a：</p><blockquote><p>P2b. If a proposal with value v is chosen, then every higher-numbered proposal issued by any proposer has value v.</p><p>翻译：如果一个提案值为 v 的提案被选择了，那么 Proposer 发布的所有更高编号的提案的提案值都为 v。（Proposer 只会提出提案值为 v 的提案）</p></blockquote><p>因为一个提案在被一个 Acceptor 接受之前必须要被 Proposer 提出，P2b 满足了 P2a，且满足了 P2。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一致性算法-Paxos&quot;&gt;&lt;a href=&quot;#一致性算法-Paxos&quot; class=&quot;headerlink&quot; title=&quot;一致性算法 Paxos&quot;&gt;&lt;/a&gt;一致性算法 Paxos&lt;/h1&gt;&lt;h2 id=&quot;提出问题&quot;&gt;&lt;a href=&quot;#提出问题&quot; class=&quot;headerlink&quot; title=&quot;提出问题&quot;&gt;&lt;/a&gt;提出问题&lt;/h2&gt;&lt;p&gt;假设一个进程的集合可以提出值（values），一致性算法则保证了只选出所提出值中的单个值。如果没有值没提出，那就不会有值被选中。如果一个值被选中，那么进程应该能够学习到该值。共识（一致性）的安全性要求如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一个值只有被提出才可能被选中，&lt;/li&gt;
+&lt;li&gt;只有一个值能被选中，并且&lt;/li&gt;
+&lt;li&gt;一个进程在一个值被选中之前永远不会知道这个值是什么。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;目标是保证一些被提出的值能最终被选中，并且如果一个值被选中，那么进程最终能够知道（learn）该值。&lt;/p&gt;
+&lt;p&gt;我们让共识算法中的三个角色（role）由三个代理（agent）来执行：&lt;strong&gt;proposers&lt;/strong&gt;，&lt;strong&gt;acceptors&lt;/strong&gt;，&lt;strong&gt;learners&lt;/strong&gt;。在实现中，单个进程可能不止扮演一个代理，但这里我们不关心代理和进程的映射。&lt;/p&gt;
+&lt;p&gt;假设代理能够通过消息传递与另一个进行通信，使用常用的异步，非拜占庭模型，其中：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;代理以任意的速度执行，可能会因为停止而失败，也可能重启。因为所有代理都可能在一个值被选中之后失败并重启，除非某些信息能被失败重启的代理记住，否则不可能有解决方案。&lt;/li&gt;
+&lt;li&gt;消息能以任意长的时间传递，可以重复，可以丢失，但是不会损坏。&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="http://keanu96.github.io/tags/Algorithm/"/>
+    
+  </entry>
   
   <entry>
     <title>Java 垃圾回收</title>
