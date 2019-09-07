@@ -16,7 +16,7 @@
 <meta property="og:description" content="前言在一个分布式的系统中，数据的一致性是非常重要的。所以需要用到一致性算法来解决数据一致性的问题。大家都知道 Zookeeper 的 zab 协议就是基于 Paxos 算法的，而我最近正好看了 Leslie Lamport 的 Paxos Made Simple 这篇论文，以下是我对 Paxos Made Simple 参杂自己的理解之后的翻译 (某些地方有机翻😄)，如果有错误的地方请指正，谢谢">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://keanu96.github.io/paxos-made-simple/thumbnail.jpg">
-<meta property="og:updated_time" content="2019-08-25T14:06:35.563Z">
+<meta property="og:updated_time" content="2019-09-07T13:01:56.838Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Paxos Made Simple(译文)">
 <meta name="twitter:description" content="前言在一个分布式的系统中，数据的一致性是非常重要的。所以需要用到一致性算法来解决数据一致性的问题。大家都知道 Zookeeper 的 zab 协议就是基于 Paxos 算法的，而我最近正好看了 Leslie Lamport 的 Paxos Made Simple 这篇论文，以下是我对 Paxos Made Simple 参杂自己的理解之后的翻译 (某些地方有机翻😄)，如果有错误的地方请指正，谢谢">
@@ -162,7 +162,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    27 分钟 读完 (大约 4078 个字)
+                    27 分钟 读完 (大约 4086 个字)
                 </span>
                 
                 
@@ -175,7 +175,7 @@
             
         </h1>
         <div class="content">
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在一个分布式的系统中，数据的一致性是非常重要的。所以需要用到一致性算法来解决数据一致性的问题。大家都知道 Zookeeper 的 zab 协议就是基于 Paxos 算法的，而我最近正好看了 <strong>Leslie Lamport</strong> 的 Paxos Made Simple 这篇论文，以下是我对 Paxos Made Simple 参杂自己的理解之后的翻译 (某些地方有机翻😄)，如果有错误的地方请指正，谢谢。</p>
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在一个分布式的系统中，数据的一致性是非常重要的。所以需要用到一致性算法来解决数据一致性的问题。大家都知道 Zookeeper 的 zab 协议就是基于 Paxos 算法的，而我最近正好看了 <strong>Leslie Lamport</strong> 的 <a href="https://lamport.azurewebsites.net/pubs/paxos-simple.pdf" target="_blank" rel="noopener">Paxos Made Simple</a> 这篇论文，以下是我对 Paxos Made Simple 参杂自己的理解之后的翻译 (某些地方有机翻😄)，如果有错误的地方请指正，谢谢。</p>
 <a id="more"></a>
 <h1 id="提出问题"><a href="#提出问题" class="headerlink" title="提出问题"></a>提出问题</h1><p>假设一个进程的集合可以提出值（values），一致性算法则保证了只选出所提出值中的单个值。如果没有值没提出，那就不会有值被选中。如果一个值被选中，那么进程应该能够学习到该值。共识（一致性）的安全性要求如下：</p>
 <ul>
