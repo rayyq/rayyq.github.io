@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://keanu96.github.io/jvm-garbage-collection/</loc>
+    
+    <lastmod>2019-09-07T00:46:44.594Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://keanu96.github.io/paxos-made-simple/</loc>
     
-    <lastmod>2019-08-24T12:38:47.599Z</lastmod>
+    <lastmod>2019-08-25T14:06:35.563Z</lastmod>
     
   </url>
   
@@ -12,13 +19,6 @@
     <loc>http://keanu96.github.io/build-hexo-blog/</loc>
     
     <lastmod>2019-07-26T13:41:45.970Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://keanu96.github.io/jvm-garbage-collection/</loc>
-    
-    <lastmod>2019-07-26T12:34:12.441Z</lastmod>
     
   </url>
   
