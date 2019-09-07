@@ -16,7 +16,7 @@
 <meta property="og:description" content="我们在学习 Java 并发编程的时候，看到的最多的就是 synchronized 关键字了，它可以解决很多线程安全问题，随着深入学习，我们知道 synchronized 实现了可重入，但是它是一个重量级锁，效率相对于 Lock 来说并不是那么好。但是经过 Java 几个版本的优化之后，synchronized 并不显得那么笨重了。下面我们来看一下 synchronized 的实现机制，和 Java">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://keanu96.github.io/deep-in-synchronized/thumbnail.jpg">
-<meta property="og:updated_time" content="2019-09-07T03:14:11.197Z">
+<meta property="og:updated_time" content="2019-09-07T03:14:48.786Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Java 并发】synchornized学习笔记">
 <meta name="twitter:description" content="我们在学习 Java 并发编程的时候，看到的最多的就是 synchronized 关键字了，它可以解决很多线程安全问题，随着深入学习，我们知道 synchronized 实现了可重入，但是它是一个重量级锁，效率相对于 Lock 来说并不是那么好。但是经过 Java 几个版本的优化之后，synchronized 并不显得那么笨重了。下面我们来看一下 synchronized 的实现机制，和 Java">
@@ -166,7 +166,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    8 分钟 读完 (大约 1154 个字)
+                    8 分钟 读完 (大约 1146 个字)
                 </span>
                 
                 
@@ -196,7 +196,7 @@
 </ul>
 <figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">		<span class="hljs-keyword">synchronized</span> (<span class="hljs-keyword">this</span>) &#123;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="Synchronized-字节码表示"><a href="#Synchronized-字节码表示" class="headerlink" title="Synchronized 字节码表示"></a>Synchronized 字节码表示</h2><p>我们利用工具查看生成的 class 文件，生成的 class 文件如下：</p>
-<p><img src="/Users/leiyongqi/blog/source/_posts/deep-in-synchronized/synchronized-class-file.jpg" alt="Synchronized class 文件"></p>
+<p><img src="synchronized-class-file.jpg" alt="Synchronized class 文件"></p>
 <p>从以上 class 文件我们可以看出，同步代码块是通过 <strong>monitorenter</strong> 和 <strong>monitorexit</strong> 来实现的，同步方法是依靠方法修饰符中的 <strong>ACC_SYNCHRONIZED</strong> 实现。</p>
 <ul>
 <li>同步代码块：moniterenter 指令会插入到同步代码块开始的位置，moniterexit 插入到同步代码块结束的位置，JVM 需要保证每个 monitorenter 都有一个 monitorexit 相对应。任何对象都有一个 monitor 与之相关联，当 monitor 被持有后，它将处于锁定状态。线程执行到 moniterenter 指令时，将会尝试获取当前对象对应的 monitor 所有权（这个过程就是获取锁）。</li>
