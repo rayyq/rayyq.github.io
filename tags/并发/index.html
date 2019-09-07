@@ -2,7 +2,7 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>分类: Redis - Keanu</title>
+<title>标签: 并发 - Keanu</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
@@ -11,7 +11,7 @@
 <meta name="keywords" content="Java,Tech">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Keanu">
-<meta property="og:url" content="http://keanu96.github.io/categories/Redis/index.html">
+<meta property="og:url" content="http://keanu96.github.io/tags/并发/index.html">
 <meta property="og:site_name" content="Keanu">
 <meta property="og:description" content="Keanu 的技术小记">
 <meta property="og:locale" content="zh-CN">
@@ -143,9 +143,8 @@
     <div class="card-content">
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
-            <li><a href="/categories">分类</a></li>
-            
-            <li class="is-active"><a href="#" aria-current="page">Redis</a></li>
+            <li><a href="/tags">标签</a></li>
+            <li class="is-active"><a href="#" aria-current="page">并发</a></li>
         </ul>
         </nav>
     </div>
@@ -153,21 +152,27 @@
 
     <div class="card">
     
+    <div class="card-image">
+        <a href="/deep-in-synchronized/" class="image is-7by1">
+            <img class="thumbnail" src="/deep-in-synchronized/thumbnail.jpg" alt="【Java 并发】synchornized学习笔记">
+        </a>
+    </div>
+    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-07-09T13:27:26.000Z">2019-07-09</time>
+                <time class="level-item has-text-grey" datetime="2019-09-07T01:44:19.000Z">2019-09-07</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Redis/">Redis</a>
+                <a class="has-link-grey -link" href="/categories/Java/">Java</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    15 分钟 读完 (大约 2301 个字)
+                    8 分钟 读完 (大约 1154 个字)
                 </span>
                 
                 
@@ -176,11 +181,11 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/redis-persistence/">Redis学习 - 持久化机制</a>
+                <a class="has-link-black-ter" href="/deep-in-synchronized/">【Java 并发】synchornized学习笔记</a>
             
         </h1>
         <div class="content">
-            <p>Redis 是一个基于内存的数据库，数据都是存储在内存当中，这样当服务器宕机或者程序异常退出时，会有大量数据丢失，所以为了避免数据丢失，需要将数据持久化到到硬盘中，Redis 的持久化就是将内存中的数据写入到磁盘中进行存储，这样 Redis 在下次重启时可以利用持久化文件来进行数据恢复。</p>
+            <p>我们在学习 Java 并发编程的时候，看到的最多的就是 synchronized 关键字了，它可以解决很多线程安全问题，随着深入学习，我们知道 synchronized 实现了可重入，但是它是一个重量级锁，效率相对于 Lock 来说并不是那么好。但是经过 Java 几个版本的优化之后，synchronized 并不显得那么笨重了。下面我们来看一下 synchronized 的实现机制，和 Java 对它进行了什么样的升级。</p>
         </div>
         
         
@@ -188,7 +193,7 @@
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/redis-persistence/#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/deep-in-synchronized/#more">阅读更多</a>
                 </div>
             </div>
         </div>
