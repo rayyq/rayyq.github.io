@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>标签: Ribbon - Keanu</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="Keanu 的技术小记">
+<meta name="keywords" content="Java,Tech">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Keanu">
+<meta property="og:url" content="http://keanu96.github.io/tags/Ribbon/index.html">
+<meta property="og:site_name" content="Keanu">
+<meta property="og:description" content="Keanu 的技术小记">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://keanu96.github.io/images/og_image.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Keanu">
+<meta name="twitter:description" content="Keanu 的技术小记">
+<meta name="twitter:image" content="http://keanu96.github.io/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/PacMan.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<!-- <body class="is-3-column"> -->
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                Keanu
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">首页</a>
+                
+                <a class="navbar-item" href="/archives">归档</a>
+                
+                <a class="navbar-item" href="/categories">分类</a>
+                
+                <a class="navbar-item" href="/tags">标签</a>
+                
+                <a class="navbar-item" href="/about">关于我</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/keanu96">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/tags">标签</a></li>
+            <li class="is-active"><a href="#" aria-current="page">Ribbon</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    <div class="card">
+    
+    <div class="card-image">
+        <a href="/ribbon-source-code/" class="image is-7by1">
+            <img class="thumbnail" src="/ribbon-source-code/thumbnail.jpg" alt="Ribbon 负载均衡源码分析">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-10-03T13:49:44.000Z">2019-10-03</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Spring-Cloud/">Spring Cloud</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    13 分钟 读完 (大约 2009 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/ribbon-source-code/">Ribbon 负载均衡源码分析</a>
+            
+        </h1>
+        <div class="content">
+            <p>Ribbon 是 Netflix 公司开源的一个负载均衡项目。可以在 Zuul 中使用 Ribbon 做负载均衡，也可以和 Feign 结合使用。在 Spring Cloud 开发中使用的最多的可能就是 RestTemplate 和 Ribbon。代码可能如下：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@Configuration</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RibbonConfig</span> </span>&#123;</span><br><span class="line">    <span class="hljs-meta">@Bean</span></span><br><span class="line">    <span class="hljs-meta">@LoadBalanced</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> RestTemplate <span class="hljs-title">restTemplate</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> RestTemplate();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用 RestTemplate 消费服务接口的代码可能是这样的：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@Service</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RibbonService</span> </span>&#123;</span><br><span class="line">    <span class="hljs-meta">@Autowired</span></span><br><span class="line">    <span class="hljs-keyword">private</span> RestTemplate restTemplate;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">hi</span><span class="hljs-params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> restTemplate.getForObject(<span class="hljs-string">"http://eureka-client/hi?name="</span>+name,String.class);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>RestTemplate 在 Spring 中就已经存在了，查看以上的代码可以发现 RestTemplate Bean 上有一个 @LoadBalanced 注解，这个注解标记在 RestTemplate 上，让负载均衡客户端 LoadBalancerClient 来配置它。</p>
+<h1 id="组件介绍"><a href="#组件介绍" class="headerlink" title="组件介绍"></a>组件介绍</h1><h2 id="LoadBalancerClient"><a href="#LoadBalancerClient" class="headerlink" title="LoadBalancerClient"></a>LoadBalancerClient</h2><p>spring-cloud-common 包中提供了 LoadBalancerClient 接口，它是 Ribbon 中一个非常重要的组件。继承结构如下：</p>
+<p><img src="LoadBalancerClient 继承结构.png" alt="LoadBalancerClient 继承结构"></p>
+<p>LoadBalancerClient 接口中有三个方法：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">LoadBalancerClient</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ServiceInstanceChooser</span> </span>&#123;</span><br><span class="line">		&lt;T&gt; <span class="hljs-function">T <span class="hljs-title">execute</span><span class="hljs-params">(String serviceId, LoadBalancerRequest&lt;T&gt; request)</span> <span class="hljs-keyword">throws</span> IOException</span>;</span><br><span class="line">    <span class="hljs-comment">// 使用 LoadBalancer 的 ServiceInstance，对其执行请求，返回结果</span></span><br><span class="line">		&lt;T&gt; <span class="hljs-function">T <span class="hljs-title">execute</span><span class="hljs-params">(String serviceId, ServiceInstance serviceInstance, LoadBalancerRequest&lt;T&gt; request)</span> <span class="hljs-keyword">throws</span> IOException</span>;</span><br><span class="line">    <span class="hljs-comment">// 构造一个包含主机和端口的真正的 url</span></span><br><span class="line">    <span class="hljs-comment">// http://serviceId/path/... --&gt; http://host:port/path/...</span></span><br><span class="line">		<span class="hljs-function">URI <span class="hljs-title">reconstructURI</span><span class="hljs-params">(ServiceInstance instance, URI original)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ServiceInstanceChooser 中的方法：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ServiceInstanceChooser</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function">ServiceInstance <span class="hljs-title">choose</span><span class="hljs-params">(String serviceId)</span></span>; <span class="hljs-comment">// 通过 serviceId 选择服务</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 RibbonLoadBalancerClient 中，主要有以下几个方法：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@Override</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> ServiceInstance <span class="hljs-title">choose</span><span class="hljs-params">(String serviceId, Object hint)</span> </span>&#123;</span><br><span class="line">		Server server = <span class="hljs-keyword">this</span>.getServer(<span class="hljs-keyword">this</span>.getLoadBalancer(serviceId), hint);</span><br><span class="line">		<span class="hljs-keyword">return</span> server == <span class="hljs-keyword">null</span> ? <span class="hljs-keyword">null</span> : <span class="hljs-keyword">new</span> RibbonLoadBalancerClient.RibbonServer(serviceId, server, <span class="hljs-keyword">this</span>.isSecure(server, serviceId), <span class="hljs-keyword">this</span>.serverIntrospector(serviceId).getMetadata(server));</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">protected</span> Server <span class="hljs-title">getServer</span><span class="hljs-params">(String serviceId)</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.getServer(<span class="hljs-keyword">this</span>.getLoadBalancer(serviceId), (Object)<span class="hljs-keyword">null</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">protected</span> Server <span class="hljs-title">getServer</span><span class="hljs-params">(ILoadBalancer loadBalancer)</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.getServer(loadBalancer, (Object)<span class="hljs-keyword">null</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">protected</span> Server <span class="hljs-title">getServer</span><span class="hljs-params">(ILoadBalancer, Object hint)</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> loadBalancer == <span class="hljs-keyword">null</span> ? <span class="hljs-keyword">null</span> : loadBalancer.chooseServer(hint != <span class="hljs-keyword">null</span> ? hint : <span class="hljs-string">"default"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>choose 方法中的第一行返回的 Server 对象包含：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Server</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String UNKNOWN_ZONE = <span class="hljs-string">"UNKNOWN"</span>;</span><br><span class="line">    <span class="hljs-keyword">private</span> String host;</span><br><span class="line">    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> port;</span><br><span class="line">    <span class="hljs-keyword">private</span> String scheme;</span><br><span class="line">    <span class="hljs-keyword">private</span> <span class="hljs-keyword">volatile</span> String id;</span><br><span class="line">    <span class="hljs-keyword">private</span> <span class="hljs-keyword">volatile</span> <span class="hljs-keyword">boolean</span> isAliveFlag;</span><br><span class="line">    <span class="hljs-keyword">private</span> String zone;</span><br><span class="line">    <span class="hljs-keyword">private</span> <span class="hljs-keyword">volatile</span> <span class="hljs-keyword">boolean</span> readyToServe;</span><br><span class="line">    <span class="hljs-keyword">private</span> Server.MetaInfo simpleMetaInfo;</span><br><span class="line">    <span class="hljs-comment">// ... 省略代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看出，RibbonLoadBalancerClient 中通过 ILoadBalancer的 <code>choose</code> 方法获取服务实例，其中又调用 <code>getServer</code> 方法来获取 Server 对象，跟踪源码可以看到，最终是通过 ILoadBalancer 的 chooseServer 方法去选择服务实例。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ILoadBalancer</span> </span>&#123;</span><br><span class="line">    <span class="hljs-comment">// 添加一个 Server 集合</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addServers</span><span class="hljs-params">(List&lt;Server&gt; newServers)</span></span>;</span><br><span class="line">    <span class="hljs-comment">// 根据 key 获取 Server</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> Server <span class="hljs-title">chooseServer</span><span class="hljs-params">(Object key)</span></span>;</span><br><span class="line">    <span class="hljs-comment">// 标记某个服务下线</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">markServerDown</span><span class="hljs-params">(Server server)</span></span>;</span><br><span class="line">    <span class="hljs-comment">// 获取可用的 Server 集合</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Server&gt; <span class="hljs-title">getReachableServers</span><span class="hljs-params">()</span></span>;</span><br><span class="line">    <span class="hljs-comment">// 获取所有的 Server集合</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Server&gt; <span class="hljs-title">getAllServers</span><span class="hljs-params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过阅读源码，可以发现，chooseServer 最终是由 DynamicServerListLoadBalancer 来实现的。</p>
+<h2 id="DynamicServerListLoadBalancer"><a href="#DynamicServerListLoadBalancer" class="headerlink" title="DynamicServerListLoadBalancer"></a>DynamicServerListLoadBalancer</h2><p>这个类继承 BaseLoadBalancer，ILoadBalancer 的继承结构如下：</p>
+<p><img src="ILoadBalancer 继承结构.png" alt="ILoadBalancer 继承结构"></p>
+<p>查看 DynamicServerListLoadBalancer，BaseLoadBalancer，ILoadBalancer 这三个类，配置了 IClientConfig，IRule，IPing，ServerList，ServerListFilter 和 ILoadBalancer，在 BaseLoadBalancer 中，默认进行了以下配置：</p>
+<ul>
+<li>IClientConfig ribbonClientConfig：DefaultClientConfigImpl 配置（用于客户端的负载均衡配置）</li>
+<li>IRule ribbonRule：默认路由策略为 RoundRobinRule</li>
+<li>IPing ribbonPing：DummyPing</li>
+<li>ServerList ribbonServerList：ConfigurationBasedServerList</li>
+<li>ServerListFilter ribbonServerListFilter：ZonePreferenceServerListFilter</li>
+<li>ILoadBalancer ribbonLoadBalancer：ZoneAwareLoadBalancer</li>
+</ul>
+<h2 id="IRule"><a href="#IRule" class="headerlink" title="IRule"></a>IRule</h2><p>IRule 有很多默认的实现类，都通过不同的算法来处理负载均衡，Ribbon 中实现的 IRule 又以下几种：</p>
+<p><img src="IRule 实现类.png" alt="IRule 实现类"></p>
+<ul>
+<li>BestAvailableRule：选择最小请求数</li>
+<li>ClientConfigEnabledRoundRobinRule：轮询</li>
+<li>RandomRule：随机选择 Server</li>
+<li>RoundRobinRule：轮询</li>
+<li>WeightedResponseTimeRule：根据响应时间分配一个权重 weight，weight越低，被选择的可能性就越低</li>
+<li>ZoneAvoidanceRule：根据 Server 的 Zone 区域和可用性轮询选择</li>
+</ul>
+<h2 id="IPing"><a href="#IPing" class="headerlink" title="IPing"></a>IPing</h2><p>IPing 的实现类又 PingUrl，PingConstant，NoOpPing，DummyPing 和 NIWSDiscoveryPing。IPing 接口中有一个 <code>isAlive</code> 方法。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isAlive</span><span class="hljs-params">(Server Server)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>通过向 Server 发送 ping 信号，来判断 Server 是否可用</p>
+<p><img src="IPing 实现类.png" alt="IPing 实现类"></p>
+<ul>
+<li>PingUrl 真实的去ping 某个url，判断其是否alive</li>
+<li>PingConstant 固定返回某服务是否可用，默认返回true，即可用</li>
+<li>NoOpPing 不去ping,直接返回true,即可用。</li>
+<li>DummyPing 直接返回true，并实现了initWithNiwsConfig方法。</li>
+<li>NIWSDiscoveryPing，根据DiscoveryEnabledServer的InstanceInfo的InstanceStatus去判断，如果为InstanceStatus.UP，则为可用，否则不可用。</li>
+</ul>
+<h2 id="ServerList"><a href="#ServerList" class="headerlink" title="ServerList"></a>ServerList</h2><p>ServerList 是定义了获取所有的 Server 的注册列表信息的接口。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ServerList</span>&lt;<span class="hljs-title">T</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Server</span>&gt; </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;T&gt; <span class="hljs-title">getInitialListOfServers</span><span class="hljs-params">()</span></span>;</span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;T&gt; <span class="hljs-title">getUpdatedListOfServers</span><span class="hljs-params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="ServerListFilter"><a href="#ServerListFilter" class="headerlink" title="ServerListFilter"></a>ServerListFilter</h2><p>ServerListFilter 可根据配置过滤或者根据特性动态获取符合条件的 Server 列表。该类也是一个接口</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ServerListFilter</span>&lt;<span class="hljs-title">T</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Server</span>&gt; </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;T&gt; <span class="hljs-title">getFilteredListOfServers</span><span class="hljs-params">(List&lt;T&gt; servers)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h1><h2 id="DynamicServerListLoadBalancer-构造方法"><a href="#DynamicServerListLoadBalancer-构造方法" class="headerlink" title="DynamicServerListLoadBalancer 构造方法"></a>DynamicServerListLoadBalancer 构造方法</h2><p>DynamicServerListLoadBalancer 中的构造方法中调用了一个方法 - <code>initWithNiwsConfig()</code>。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">DynamicServerListLoadBalancer</span><span class="hljs-params">(IClientConfig clientConfig)</span> </span>&#123;</span><br><span class="line">    initWithNiwsConfig(clientConfig);</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">initWithNiwsConfig</span><span class="hljs-params">(IClientConfig clientConfig)</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">        <span class="hljs-keyword">super</span>.initWithNiwsConfig(clientConfig);</span><br><span class="line">        <span class="hljs-comment">// 获取 ServerList 的 classname</span></span><br><span class="line">        String niwsServerListClassname = clientConfig.getPropertyAsString(CommonClientConfigKey.NIWSServerListClassName, DefaultClientConfigImpl.DEFAULT_SERVER_LIST_CLASS);</span><br><span class="line">        <span class="hljs-comment">// 构造 ServerList</span></span><br><span class="line">        ServerList&lt;T&gt; niwsServerListImpl = (ServerList&lt;T&gt;) ClientFactory.instantiateInstanceWithClientConfig(niwsServerListClassName, clientConfig);</span><br><span class="line">        <span class="hljs-comment">// 如果该 ServerList 是 AbstractServerList 的子类，则获取并设置过滤器</span></span><br><span class="line">        <span class="hljs-keyword">if</span> (niwsServerListImpl <span class="hljs-keyword">instanceof</span> AbstractServerList) &#123;</span><br><span class="line">            AbstractServerListFilter&lt;T&gt; niwsFilter = ((AbstractServerList) niwsServerListImpl).getFilterImpl(clientConfig);</span><br><span class="line">            niwsFilter.setLoadBalancerStats(getLoadBalancerStats());</span><br><span class="line">            <span class="hljs-keyword">this</span>.filter = niwsFilter;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-comment">// 获取 ServerListUpdater 的 classname</span></span><br><span class="line">        String serverListUpdaterClassName = clientConfig.getPropertyAsString(</span><br><span class="line">        	CommonClientConfigKey.ServerListUpdaterClassname,</span><br><span class="line">            DefaultClientConfigImpl.DEFAULT_SERVER_LIST_UPDATER_CLASS</span><br><span class="line">        );</span><br><span class="line">        </span><br><span class="line">        <span class="hljs-comment">// 通过 classname 构造 ServerListUpdater 设置到 serverListUpdater 成员属性中</span></span><br><span class="line">        <span class="hljs-keyword">this</span>.serverListUpdater = (ServerListUpdater) ClientFactory</span><br><span class="line">            .instantiateInstanceWithClientConfig(serverListUpdaterClassName, clientConfig);</span><br><span class="line">        <span class="hljs-comment">// 执行剩下的初始化操作</span></span><br><span class="line">        restOfInit(clientConfig);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">DynamicServerListLoadBalancer</span><span class="hljs-params">(IClientConfig clientConfig)</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>.isSecure = <span class="hljs-keyword">false</span>;</span><br><span class="line">    <span class="hljs-keyword">this</span>.useTunnel = <span class="hljs-keyword">false</span>;</span><br><span class="line">    <span class="hljs-keyword">this</span>.serverListUpdateInProgress = <span class="hljs-keyword">new</span> AtomicBoolean(<span class="hljs-keyword">false</span>);</span><br><span class="line"></span><br><span class="line">    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NamelessClass_1</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UpdateAction</span> </span>&#123;</span><br><span class="line">        NamelessClass_1() &#123;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doUpdate</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">            DynamicServerListLoadBalancer.<span class="hljs-keyword">this</span>.updateListOfServers();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">this</span>.updateAction = <span class="hljs-keyword">new</span> NamelessClass_1();</span><br><span class="line">    <span class="hljs-keyword">this</span>.initWithNiwsConfig(clientConfig);</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initWithNiwsConfig</span><span class="hljs-params">(IClientConfig clientConfig)</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">        <span class="hljs-keyword">super</span>.initWithNiwsConfig(clientConfig);</span><br><span class="line">        <span class="hljs-comment">// 获取 ServerList 的 classname</span></span><br><span class="line">        String niwsServerListClassName = clientConfig.getPropertyAsString(CommonClientConfigKey.NIWSServerListClassName, <span class="hljs-string">"com.netflix.loadbalancer.ConfigurationBasedServerList"</span>);</span><br><span class="line">        <span class="hljs-comment">// 构造 ServerList</span></span><br><span class="line">        ServerList&lt;T&gt; niwsServerListImpl = (ServerList)ClientFactory.instantiateInstanceWithClientConfig(niwsServerListClassName, clientConfig);</span><br><span class="line">        <span class="hljs-keyword">this</span>.serverListImpl = niwsServerListImpl;</span><br><span class="line">        <span class="hljs-comment">// 判断该 ServerList 是否为 AbstractServerList 的子类</span></span><br><span class="line">        <span class="hljs-keyword">if</span> (niwsServerListImpl <span class="hljs-keyword">instanceof</span> AbstractServerList) &#123;</span><br><span class="line">            <span class="hljs-comment">// 如果是，则获取 AbstractServerFilter</span></span><br><span class="line">            AbstractServerListFilter&lt;T&gt; niwsFilter = ((AbstractServerList)niwsServerListImpl).getFilterImpl(clientConfig);</span><br><span class="line">            niwsFilter.setLoadBalancerStats(<span class="hljs-keyword">this</span>.getLoadBalancerStats());</span><br><span class="line">            <span class="hljs-keyword">this</span>.filter = niwsFilter;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        String serverListUpdaterClassName = clientConfig.getPropertyAsString(CommonClientConfigKey.ServerListUpdaterClassName, <span class="hljs-string">"com.netflix.loadbalancer.PollingServerListUpdater"</span>);</span><br><span class="line">        <span class="hljs-keyword">this</span>.serverListUpdater = (ServerListUpdater)ClientFactory.instantiateInstanceWithClientConfig(serverListUpdaterClassName, clientConfig);</span><br><span class="line">        <span class="hljs-keyword">this</span>.restOfInit(clientConfig);</span><br><span class="line">    &#125; <span class="hljs-keyword">catch</span> (Exception var5) &#123;</span><br><span class="line">        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(<span class="hljs-string">"Exception while initializing NIWSDiscoveryLoadBalancer:"</span> + clientConfig.getClientName() + <span class="hljs-string">", niwsClientConfig:"</span> + clientConfig, var5);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="restOfInit"><a href="#restOfInit" class="headerlink" title="restOfInit"></a>restOfInit</h2><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">restOfInit</span><span class="hljs-params">(IClientConfig clientConfig)</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">boolean</span> primeConnection = <span class="hljs-keyword">this</span>.isEnablePrimingConnections();</span><br><span class="line">    <span class="hljs-comment">// 将这个关闭来避免 BaseLoadBalancer.setServerList() 中重复的异步启动</span></span><br><span class="line">    <span class="hljs-keyword">this</span>.setEnablePrimingConnections(<span class="hljs-keyword">false</span>);</span><br><span class="line">    enableAndInitLearnNewServersFeature();</span><br><span class="line">    </span><br><span class="line">    updateListOfServers(); <span class="hljs-comment">// 用来获取所有的 Server </span></span><br><span class="line">    <span class="hljs-keyword">if</span> (primeConnection &amp;&amp; <span class="hljs-keyword">this</span>.getPrimeConnections() != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.getPrimeConnections().primeConnections(getReachableServers());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">this</span>.setEnablePrimingConnections(primeConnection);</span><br><span class="line">    LOGGER.info(<span class="hljs-string">"DynamicServerListLoadBalancer for client &#123;&#125; initialized: &#123;&#125;"</span>, clientConfig.getClientName(), <span class="hljs-keyword">this</span>.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面源码中的 <code>updateListOfServers()</code> 最终是通过 serverListImpl.getUpdatedListOfServers() 来获取所有的服务列表的：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@VisibleForTesting</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">updateListOfServers</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    List&lt;T&gt; servers = <span class="hljs-keyword">new</span> ArrayList&lt;T&gt;();</span><br><span class="line">    <span class="hljs-keyword">if</span> (serverListImpl != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">        servers = serverListImpl.getUpdatedListOfServers();</span><br><span class="line">        LOGGER.debug(<span class="hljs-string">"List of Servers for &#123;&#125; obtained from Discovery client: &#123;&#125;"</span>, </span><br><span class="line">                     getIdentifier(), servers);</span><br><span class="line">        <span class="hljs-keyword">if</span> (filter != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">            <span class="hljs-comment">// 如果配置了过滤器，则将符合条件的 server 筛选出来</span></span><br><span class="line">            servers = filter.getFilteredListOfServers(servers);</span><br><span class="line">            LOGGER.debug(<span class="hljs-string">"Filtered List of Servers for &#123;&#125; obtained from Discovery client: &#123;&#125;"</span>, getIdentifier(), servers);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    updateAllServerList(servers);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中 serverListImpl 是 ServerList 的实现类 - DiscoveryEnabledNIWSServerList。而 <code>getUpdatedListOfServers()</code> 的具体实现为：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@Override</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;DiscoveryEnabledServer&gt; <span class="hljs-title">getInitialListOfServers</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> obtainServersViaDiscovery();</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;DiscoveryEnabledServer&gt; <span class="hljs-title">getUpdatedListOfServers</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> obtainServersViaDiscovery();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="obtainServersViaDiscovery"><a href="#obtainServersViaDiscovery" class="headerlink" title="obtainServersViaDiscovery"></a>obtainServersViaDiscovery</h2><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">private</span> List&lt;DiscoveryEnabledServer&gt; <span class="hljs-title">obtainServersViaDiscovery</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    List&lt;DiscoveryEnabledServer&gt; serverList = <span class="hljs-keyword">new</span> ArrayList&lt;DiscoveryEnabledServer&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">if</span> (eurekaClientProvider == <span class="hljs-keyword">null</span> || eurekaClientProvider.get() == <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">        logger.warn(<span class="hljs-string">"EurekaClient has not been initialized yet, returning an empty list"</span>);</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ArrayList&lt;DiscoveryEnabledServer&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">		<span class="hljs-comment">// eurekaClientProvider 的实现类是 LegacyEurekaClientProvider，通过 DiscovryManager 静态方法获取 eurekaClient</span></span><br><span class="line">    EurekaClient eurekaClient = eurekaClientProvider.get();</span><br><span class="line">    <span class="hljs-keyword">if</span> (vipAddresses!=<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">        <span class="hljs-keyword">for</span> (String vipAddress : vipAddresses.split(<span class="hljs-string">","</span>)) &#123;</span><br><span class="line">            <span class="hljs-comment">// if targetRegion is null, it will be interpreted as the same region of client</span></span><br><span class="line">            List&lt;InstanceInfo&gt; listOfInstanceInfo = eurekaClient.getInstancesByVipAddress(vipAddress, isSecure, targetRegion);</span><br><span class="line">            <span class="hljs-keyword">for</span> (InstanceInfo ii : listOfInstanceInfo) &#123;</span><br><span class="line">                <span class="hljs-keyword">if</span> (ii.getStatus().equals(InstanceStatus.UP)) &#123;</span><br><span class="line"></span><br><span class="line">                    <span class="hljs-keyword">if</span>(shouldUseOverridePort)&#123;</span><br><span class="line">                        <span class="hljs-keyword">if</span>(logger.isDebugEnabled())&#123;</span><br><span class="line">                            logger.debug(<span class="hljs-string">"Overriding port on client name: "</span> + clientName + <span class="hljs-string">" to "</span> + overridePort);</span><br><span class="line">                        &#125;</span><br><span class="line"></span><br><span class="line">                        <span class="hljs-comment">// copy is necessary since the InstanceInfo builder just uses the original reference,</span></span><br><span class="line">                        <span class="hljs-comment">// and we don't want to corrupt the global eureka copy of the object which may be</span></span><br><span class="line">                        <span class="hljs-comment">// used by other clients in our system</span></span><br><span class="line">                        InstanceInfo copy = <span class="hljs-keyword">new</span> InstanceInfo(ii);</span><br><span class="line"></span><br><span class="line">                        <span class="hljs-keyword">if</span>(isSecure)&#123;</span><br><span class="line">                            ii = <span class="hljs-keyword">new</span> InstanceInfo.Builder(copy).setSecurePort(overridePort).build();</span><br><span class="line">                        &#125;<span class="hljs-keyword">else</span>&#123;</span><br><span class="line">                            ii = <span class="hljs-keyword">new</span> InstanceInfo.Builder(copy).setPort(overridePort).build();</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    DiscoveryEnabledServer des = createServer(ii, isSecure, shouldUseIpAddr);</span><br><span class="line">                    serverList.add(des);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">if</span> (serverList.size()&gt;<span class="hljs-number">0</span> &amp;&amp; prioritizeVipAddressBasedServers)&#123;</span><br><span class="line">                <span class="hljs-keyword">break</span>; <span class="hljs-comment">// if the current vipAddress has servers, we dont use subsequent vipAddress based servers</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> serverList;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>LegacyEurekaClientProvider 源码：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LegacyEurekaClientProvider</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Provider</span>&lt;<span class="hljs-title">EurekaClient</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">private</span> <span class="hljs-keyword">volatile</span> EurekaClient eurekaClient;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> EurekaClient <span class="hljs-title">get</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (eurekaClient == <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">            <span class="hljs-comment">// 通过 DiscoveryManager 静态方法获取 Eureka Client</span></span><br><span class="line">            eurekaClient = DiscoveryManager.getInstance().getDiscoveryClient();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">return</span> eurekaClient;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>EurekaClient 的实现类是 DiscoveryClient，我们已经在<a href="https://www.baidu.com" target="_blank" rel="noopener">这篇文章</a>中介绍了 Eureka Client 的服务注册、获取服务注册列表的全部功能。由此可见，负载均衡器 Ribbon 是通过 Eureka Client 获取服务信息，并根据 IRule 去路由，再根据 IPing 去判断服务的可用性。</p>
+<p>那么问题来了，负载均衡器多久获取一次 Eureka Client 获取注册信息呢？</p>
+<p>我们从 BaseLoadBalancer 类的构造函数中，开启了一个 Ping Task 任务：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * BaseLoadBalancer 构造函数</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">BaseLoadBalancer</span><span class="hljs-params">(String name, IRule rule, LoadBalancerStats stats,</span></span></span><br><span class="line"><span class="hljs-function"><span class="hljs-params">    IPing ping, IPingStrategy pingStrategy)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    logger.debug(<span class="hljs-string">"LoadBalancer [&#123;&#125;]:  initialized"</span>, name);</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-keyword">this</span>.name = name;</span><br><span class="line">    <span class="hljs-keyword">this</span>.ping = ping;</span><br><span class="line">    <span class="hljs-keyword">this</span>.pingStrategy = pingStrategy;</span><br><span class="line">    setRule(rule);</span><br><span class="line">  	<span class="hljs-comment">// 设置 Ping Task 任务</span></span><br><span class="line">    setupPingTask();</span><br><span class="line">    lbStats = stats;</span><br><span class="line">    init();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * BaseLoadBalancer 构造函数</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/images/avatar1.png" alt="Keanu">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Keanu
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Don&#39;t be mediocre!
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Sichuan, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        12
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        7
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        10
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/keanu96" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/keanu96">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Envelope" href="mailto:leiyongqi1026@gmail.com">
+                
+                <i class="fas fa-envelope"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/atom.xml">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://sccarterrans.github.io" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">辉</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">sccarterrans.github.io</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://github.com/P1nov" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Pino(iOS)</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">github.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Hexo/">
+            <span class="level-start">
+                <span class="level-item">Hexo</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Java/">
+            <span class="level-start">
+                <span class="level-item">Java</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Leetcode/">
+            <span class="level-start">
+                <span class="level-item">Leetcode</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Leetcode/Easy/">
+            <span class="level-start">
+                <span class="level-item">Easy</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Redis/">
+            <span class="level-start">
+                <span class="level-item">Redis</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Spring/">
+            <span class="level-start">
+                <span class="level-item">Spring</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Spring-Cloud/">
+            <span class="level-start">
+                <span class="level-item">Spring Cloud</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Binary-Tree/" style="font-size: 10px;">Binary Tree</a> <a href="/tags/Eureka/" style="font-size: 20px;">Eureka</a> <a href="/tags/Hexo-博客搭建/" style="font-size: 10px;">Hexo 博客搭建</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/Redis-持久化/" style="font-size: 10px;">Redis 持久化</a> <a href="/tags/Ribbon/" style="font-size: 10px;">Ribbon</a> <a href="/tags/Spring-IOC/" style="font-size: 10px;">Spring IOC</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/并发/" style="font-size: 20px;">并发</a>
+    </div>
+</div>
+
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/volatile实现原理/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/volatile实现原理/thumbnail.jpg" alt="volatile实现原理">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-15T15:18:25.000Z">2019-10-15</time></div>
+                    <a href="/volatile实现原理/" class="has-link-black-ter is-size-6">volatile实现原理</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Java/">Java</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/ribbon-source-code/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/ribbon-source-code/thumbnail.jpg" alt="Ribbon 负载均衡源码分析">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-03T13:49:44.000Z">2019-10-03</time></div>
+                    <a href="/ribbon-source-code/" class="has-link-black-ter is-size-6">Ribbon 负载均衡源码分析</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Cloud/">Spring Cloud</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/eureka-source-code/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/eureka-source-code/thumbnail.jpg" alt="Eureka 源码解读">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-03T13:43:48.000Z">2019-10-03</time></div>
+                    <a href="/eureka-source-code/" class="has-link-black-ter is-size-6">Eureka 源码解读</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Cloud/">Spring Cloud</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/deep-in-eureka/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/deep-in-eureka/thumbnail.jpg" alt="微服务注册中心 Eureka 架构深入解读（转载）">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-03T13:15:06.000Z">2019-10-03</time></div>
+                    <a href="/deep-in-eureka/" class="has-link-black-ter is-size-6">微服务注册中心 Eureka 架构深入解读（转载）</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Cloud/">Spring Cloud</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/deep-in-synchronized/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/deep-in-synchronized/thumbnail.jpg" alt="【Java 并发】synchornized学习笔记">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-07T01:44:19.000Z">2019-09-07</time></div>
+                    <a href="/deep-in-synchronized/" class="has-link-black-ter is-size-6">【Java 并发】synchornized学习笔记</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Java/">Java</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Algorithm/">
+                        <span class="tag">Algorithm</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Binary-Tree/">
+                        <span class="tag">Binary Tree</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Eureka/">
+                        <span class="tag">Eureka</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hexo-博客搭建/">
+                        <span class="tag">Hexo 博客搭建</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/JVM/">
+                        <span class="tag">JVM</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Redis-持久化/">
+                        <span class="tag">Redis 持久化</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Ribbon/">
+                        <span class="tag">Ribbon</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-IOC/">
+                        <span class="tag">Spring IOC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-MVC/">
+                        <span class="tag">Spring MVC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/并发/">
+                        <span class="tag">并发</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Binary-Tree/" style="font-size: 10px;">Binary Tree</a> <a href="/tags/Eureka/" style="font-size: 20px;">Eureka</a> <a href="/tags/Hexo-博客搭建/" style="font-size: 10px;">Hexo 博客搭建</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/Redis-持久化/" style="font-size: 10px;">Redis 持久化</a> <a href="/tags/Ribbon/" style="font-size: 10px;">Ribbon</a> <a href="/tags/Spring-IOC/" style="font-size: 10px;">Spring IOC</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/并发/" style="font-size: 20px;">并发</a>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/volatile实现原理/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/volatile实现原理/thumbnail.jpg" alt="volatile实现原理">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-15T15:18:25.000Z">2019-10-15</time></div>
+                    <a href="/volatile实现原理/" class="has-link-black-ter is-size-6">volatile实现原理</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Java/">Java</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/ribbon-source-code/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/ribbon-source-code/thumbnail.jpg" alt="Ribbon 负载均衡源码分析">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-03T13:49:44.000Z">2019-10-03</time></div>
+                    <a href="/ribbon-source-code/" class="has-link-black-ter is-size-6">Ribbon 负载均衡源码分析</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Cloud/">Spring Cloud</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/eureka-source-code/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/eureka-source-code/thumbnail.jpg" alt="Eureka 源码解读">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-03T13:43:48.000Z">2019-10-03</time></div>
+                    <a href="/eureka-source-code/" class="has-link-black-ter is-size-6">Eureka 源码解读</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Cloud/">Spring Cloud</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/deep-in-eureka/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/deep-in-eureka/thumbnail.jpg" alt="微服务注册中心 Eureka 架构深入解读（转载）">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-03T13:15:06.000Z">2019-10-03</time></div>
+                    <a href="/deep-in-eureka/" class="has-link-black-ter is-size-6">微服务注册中心 Eureka 架构深入解读（转载）</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Cloud/">Spring Cloud</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/deep-in-synchronized/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/deep-in-synchronized/thumbnail.jpg" alt="【Java 并发】synchornized学习笔记">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-07T01:44:19.000Z">2019-09-07</time></div>
+                    <a href="/deep-in-synchronized/" class="has-link-black-ter is-size-6">【Java 并发】synchornized学习笔记</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Java/">Java</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Algorithm/">
+                        <span class="tag">Algorithm</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Binary-Tree/">
+                        <span class="tag">Binary Tree</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Eureka/">
+                        <span class="tag">Eureka</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hexo-博客搭建/">
+                        <span class="tag">Hexo 博客搭建</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/JVM/">
+                        <span class="tag">JVM</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Redis-持久化/">
+                        <span class="tag">Redis 持久化</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Ribbon/">
+                        <span class="tag">Ribbon</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-IOC/">
+                        <span class="tag">Spring IOC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-MVC/">
+                        <span class="tag">Spring MVC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/并发/">
+                        <span class="tag">并发</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    Keanu
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Keanu&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons,fab fa-creative-commons-by,fab fa-creative-commons-nc,fab fa-creative-commons-sa"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/keanu96">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
