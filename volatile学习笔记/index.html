@@ -2,25 +2,25 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>volatile实现原理 - Keanu</title>
+<title>volatile学习笔记 - Keanu</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="volatile 应该经常听说或者用到的。它在并发编程中起到了什么作用呢？  volatile 能禁止编译器和CPU对指令重排序 对 volatile 变量的操作插入内存屏障，保证内存的可见性  那么我们来分析一下 volatile 是如何实现的。">
+    <meta name="description" content="volatile 应该经常听说或者用到的。它在并发编程中起到了什么作用呢？  volatile 能禁止编译器和CPU对指令重排序 对 volatile 变量的操作插入内存屏障，保证内存的可见性  这是我学习 volatile 的笔记，在这里记录一下。">
 <meta name="keywords" content="并发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="volatile实现原理">
-<meta property="og:url" content="http://keanu96.github.io/volatile实现原理/index.html">
+<meta property="og:title" content="volatile学习笔记">
+<meta property="og:url" content="http://keanu96.github.io/volatile学习笔记/index.html">
 <meta property="og:site_name" content="Keanu">
-<meta property="og:description" content="volatile 应该经常听说或者用到的。它在并发编程中起到了什么作用呢？  volatile 能禁止编译器和CPU对指令重排序 对 volatile 变量的操作插入内存屏障，保证内存的可见性  那么我们来分析一下 volatile 是如何实现的。">
+<meta property="og:description" content="volatile 应该经常听说或者用到的。它在并发编程中起到了什么作用呢？  volatile 能禁止编译器和CPU对指令重排序 对 volatile 变量的操作插入内存屏障，保证内存的可见性  这是我学习 volatile 的笔记，在这里记录一下。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://keanu96.github.io/volatile实现原理/thumbnail.jpg">
-<meta property="og:updated_time" content="2019-10-15T14:27:05.623Z">
+<meta property="og:image" content="http://keanu96.github.io/volatile学习笔记/thumbnail.jpg">
+<meta property="og:updated_time" content="2019-10-16T12:00:39.302Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="volatile实现原理">
-<meta name="twitter:description" content="volatile 应该经常听说或者用到的。它在并发编程中起到了什么作用呢？  volatile 能禁止编译器和CPU对指令重排序 对 volatile 变量的操作插入内存屏障，保证内存的可见性  那么我们来分析一下 volatile 是如何实现的。">
-<meta name="twitter:image" content="http://keanu96.github.io/volatile实现原理/thumbnail.jpg">
+<meta name="twitter:title" content="volatile学习笔记">
+<meta name="twitter:description" content="volatile 应该经常听说或者用到的。它在并发编程中起到了什么作用呢？  volatile 能禁止编译器和CPU对指令重排序 对 volatile 变量的操作插入内存屏障，保证内存的可见性  这是我学习 volatile 的笔记，在这里记录一下。">
+<meta name="twitter:image" content="http://keanu96.github.io/volatile学习笔记/thumbnail.jpg">
 
 
 
@@ -148,7 +148,7 @@
     
     <div class="card-image">
         <span class="image is-7by1">
-            <img class="thumbnail" src="/volatile实现原理/thumbnail.jpg" alt="volatile实现原理">
+            <img class="thumbnail" src="/volatile学习笔记/thumbnail.jpg" alt="volatile学习笔记">
         </span>
     </div>
     
@@ -166,7 +166,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    9 分钟 读完 (大约 1302 个字)
+                    9 分钟 读完 (大约 1303 个字)
                 </span>
                 
                 
@@ -175,7 +175,7 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                volatile实现原理
+                volatile学习笔记
             
         </h1>
         <div class="content">
@@ -184,7 +184,7 @@
 <li>volatile 能禁止编译器和CPU对指令重排序</li>
 <li>对 volatile 变量的操作插入内存屏障，保证内存的可见性</li>
 </ul>
-<p>那么我们来分析一下 volatile 是如何实现的。</p>
+<p>这是我学习 volatile 的笔记，在这里记录一下。</p>
 <a id="more"></a>
 <h2 id="volatile-在-JVM-中如何实现"><a href="#volatile-在-JVM-中如何实现" class="headerlink" title="volatile 在 JVM 中如何实现"></a>volatile 在 JVM 中如何实现</h2><p>被 volatile 修饰的变量在编译之后的指令中，定义变量的 flags 会加上 ACC_VOLATILE 标志。<code>javap -v</code> 查看字节码。</p>
 <figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line">Classfile /Users/leiyongqi/IdeaProjects/study/target/classes/com/keanu/io/study/concurrency/VolatileDemo.class</span><br><span class="line">  Last modified <span class="hljs-number">2019</span>-<span class="hljs-number">10</span>-<span class="hljs-number">15</span>; size <span class="hljs-number">583</span> bytes</span><br><span class="line">  MD5 checksum <span class="hljs-number">0</span>b39c03d7d60166f7ab82b07bc3fc58d</span><br><span class="line">  Compiled from <span class="hljs-string">"VolatileDemo.java"</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">com</span>.<span class="hljs-title">keanu</span>.<span class="hljs-title">io</span>.<span class="hljs-title">study</span>.<span class="hljs-title">concurrency</span>.<span class="hljs-title">VolatileDemo</span></span></span><br><span class="line">  minor version: 0</span><br><span class="line">  major version: <span class="hljs-number">49</span></span><br><span class="line">  flags: ACC_PUBLIC, ACC_SUPER</span><br><span class="line">Constant pool:</span><br><span class="line">   #1 = Methodref          #6.#23         // java/lang/Object."&lt;init&gt;":()V</span><br><span class="line">   #2 = Fieldref           #3.#24         // com/keanu/io/study/concurrency/VolatileDemo.i:I</span><br><span class="line">   #3 = Class              #25            // com/keanu/io/study/concurrency/VolatileDemo</span><br><span class="line">   #4 = Methodref          #3.#23         // com/keanu/io/study/concurrency/VolatileDemo."&lt;init&gt;":()V</span><br><span class="line">   #5 = Methodref          #3.#26         // com/keanu/io/study/concurrency/VolatileDemo.incr:()V</span><br><span class="line">   #6 = Class              #27            // java/lang/Object</span><br><span class="line">   #7 = Utf8               i</span><br><span class="line">   #8 = Utf8               I</span><br><span class="line">   #9 = Utf8               &lt;init&gt;</span><br><span class="line">  #10 = Utf8               ()V</span><br><span class="line">  #11 = Utf8               Code</span><br><span class="line">  #12 = Utf8               LineNumberTable</span><br><span class="line">  #13 = Utf8               LocalVariableTable</span><br><span class="line">  #14 = Utf8               this</span><br><span class="line">  #15 = Utf8               Lcom/keanu/io/study/concurrency/VolatileDemo;</span><br><span class="line">  #16 = Utf8               incr</span><br><span class="line">  #17 = Utf8               main</span><br><span class="line">  #18 = Utf8               ([Ljava/lang/String;)V</span><br><span class="line">  #19 = Utf8               args</span><br><span class="line">  #20 = Utf8               [Ljava/lang/String;</span><br><span class="line">  #21 = Utf8               SourceFile</span><br><span class="line">  #22 = Utf8               VolatileDemo.java</span><br><span class="line">  #23 = NameAndType        #9:#10         // "&lt;init&gt;":()V</span><br><span class="line">  #24 = NameAndType        #7:#8          // i:I</span><br><span class="line">  #25 = Utf8               com/keanu/io/study/concurrency/VolatileDemo</span><br><span class="line">  #26 = NameAndType        #16:#10        // incr:()V</span><br><span class="line">  #27 = Utf8               java/lang/Object</span><br><span class="line">&#123;</span><br><span class="line">  <span class="hljs-keyword">volatile</span> <span class="hljs-keyword">int</span> i;</span><br><span class="line">    descriptor: I</span><br><span class="line">    flags: ACC_VOLATILE</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">public</span> com.keanu.io.study.concurrency.VolatileDemo();</span><br><span class="line">    descriptor: ()V</span><br><span class="line">    flags: ACC_PUBLIC</span><br><span class="line">    Code:</span><br><span class="line">      stack=<span class="hljs-number">2</span>, locals=<span class="hljs-number">1</span>, args_size=<span class="hljs-number">1</span></span><br><span class="line">         <span class="hljs-number">0</span>: aload_0</span><br><span class="line">         1: invokespecial #1                  // Method java/lang/Object."&lt;init&gt;":()V</span><br><span class="line">         <span class="hljs-number">4</span>: aload_0</span><br><span class="line">         <span class="hljs-number">5</span>: iconst_0</span><br><span class="line">         6: putfield      #2                  // Field i:I</span><br><span class="line">         <span class="hljs-number">9</span>: <span class="hljs-keyword">return</span></span><br><span class="line">      LineNumberTable:</span><br><span class="line">        line <span class="hljs-number">3</span>: <span class="hljs-number">0</span></span><br><span class="line">        line <span class="hljs-number">5</span>: <span class="hljs-number">4</span></span><br><span class="line">      LocalVariableTable:</span><br><span class="line">        Start  Length  Slot  Name   Signature</span><br><span class="line">            <span class="hljs-number">0</span>      <span class="hljs-number">10</span>     <span class="hljs-number">0</span>  <span class="hljs-keyword">this</span>   Lcom/keanu/io/study/concurrency/VolatileDemo;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">incr</span><span class="hljs-params">()</span></span>;</span><br><span class="line">    descriptor: ()V</span><br><span class="line">    flags: ACC_PUBLIC</span><br><span class="line">    Code:</span><br><span class="line">      stack=<span class="hljs-number">3</span>, locals=<span class="hljs-number">1</span>, args_size=<span class="hljs-number">1</span></span><br><span class="line">         <span class="hljs-number">0</span>: aload_0</span><br><span class="line">         <span class="hljs-number">1</span>: dup</span><br><span class="line">         2: getfield      #2                  // Field i:I</span><br><span class="line">         <span class="hljs-number">5</span>: iconst_1</span><br><span class="line">         <span class="hljs-number">6</span>: iadd</span><br><span class="line">         7: putfield      #2                  // Field i:I</span><br><span class="line">        <span class="hljs-number">10</span>: <span class="hljs-keyword">return</span></span><br><span class="line">      LineNumberTable:</span><br><span class="line">        line <span class="hljs-number">8</span>: <span class="hljs-number">0</span></span><br><span class="line">        line <span class="hljs-number">9</span>: <span class="hljs-number">10</span></span><br><span class="line">      LocalVariableTable:</span><br><span class="line">        Start  Length  Slot  Name   Signature</span><br><span class="line">            <span class="hljs-number">0</span>      <span class="hljs-number">11</span>     <span class="hljs-number">0</span>  <span class="hljs-keyword">this</span>   Lcom/keanu/io/study/concurrency/VolatileDemo;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(java.lang.String[])</span></span>;</span><br><span class="line">    descriptor: ([Ljava/lang/String;)V</span><br><span class="line">    flags: ACC_PUBLIC, ACC_STATIC</span><br><span class="line">    Code:</span><br><span class="line">      stack=<span class="hljs-number">2</span>, locals=<span class="hljs-number">1</span>, args_size=<span class="hljs-number">1</span></span><br><span class="line">         0: new           #3                  // class com/keanu/io/study/concurrency/VolatileDemo</span><br><span class="line">         <span class="hljs-number">3</span>: dup</span><br><span class="line">         4: invokespecial #4                  // Method "&lt;init&gt;":()V</span><br><span class="line">         7: invokevirtual #5                  // Method incr:()V</span><br><span class="line">        <span class="hljs-number">10</span>: <span class="hljs-keyword">return</span></span><br><span class="line">      LineNumberTable:</span><br><span class="line">        line <span class="hljs-number">12</span>: <span class="hljs-number">0</span></span><br><span class="line">        line <span class="hljs-number">13</span>: <span class="hljs-number">10</span></span><br><span class="line">      LocalVariableTable:</span><br><span class="line">        Start  Length  Slot  Name   Signature</span><br><span class="line">            <span class="hljs-number">0</span>      <span class="hljs-number">11</span>     <span class="hljs-number">0</span>  args   [Ljava/lang/String;</span><br><span class="line">&#125;</span><br><span class="line">SourceFile: <span class="hljs-string">"VolatileDemo.java"</span></span><br></pre></td></tr></table></figure>
@@ -217,9 +217,9 @@
         </div>
         
             <ul class="post-copyright">
-            <li><strong>本文标题：</strong><a href="http://keanu96.github.io/volatile实现原理/">volatile实现原理</a></li>
+            <li><strong>本文标题：</strong><a href="http://keanu96.github.io/volatile学习笔记/">volatile学习笔记</a></li>
             <li><strong>本文作者：</strong><a href="http://keanu96.github.io">Keanu</a></li>
-            <li><strong>本文链接：</strong><a href="http://keanu96.github.io/volatile实现原理/">http://keanu96.github.io/volatile实现原理/</a></li>
+            <li><strong>本文链接：</strong><a href="http://keanu96.github.io/volatile学习笔记/">http://keanu96.github.io/volatile学习笔记/</a></li>
             <li><strong>发布时间：</strong>2019-10-15</li>
             <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
             </ul>
@@ -294,8 +294,8 @@
         
 <script>
     var disqus_config = function () {
-        this.page.url = 'http://keanu96.github.io/volatile实现原理/';
-        this.page.identifier = 'volatile实现原理/';
+        this.page.url = 'http://keanu96.github.io/volatile学习笔记/';
+        this.page.identifier = 'volatile学习笔记/';
     };
     (function() {
         var d = document, s = d.createElement('script');  
