@@ -1,3 +1,3 @@
+http://keanu96.github.io/deep-into-JMM/
 http://keanu96.github.io/volatile学习笔记/
 http://keanu96.github.io/deep-in-eureka/
-http://keanu96.github.io/deep-in-synchronized/

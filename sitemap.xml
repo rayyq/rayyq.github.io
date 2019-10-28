@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://keanu96.github.io/Spring-IOC-%E5%AE%B9%E5%99%A8%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</loc>
+    
+    <lastmod>2019-10-28T13:49:13.047Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://keanu96.github.io/Spring-MVC-%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</loc>
+    
+    <lastmod>2019-10-28T13:48:30.711Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://keanu96.github.io/deep-into-JMM/</loc>
+    
+    <lastmod>2019-10-28T13:48:11.868Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://keanu96.github.io/volatile%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     
     <lastmod>2019-10-16T12:00:39.302Z</lastmod>
@@ -12,13 +33,6 @@
     <loc>http://keanu96.github.io/deep-in-eureka/</loc>
     
     <lastmod>2019-10-03T12:36:31.222Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://keanu96.github.io/Spring-MVC-%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</loc>
-    
-    <lastmod>2019-10-03T12:13:57.802Z</lastmod>
     
   </url>
   
@@ -47,13 +61,6 @@
     <loc>http://keanu96.github.io/build-hexo-blog/</loc>
     
     <lastmod>2019-07-26T13:41:45.970Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://keanu96.github.io/Spring-IOC-%E5%AE%B9%E5%99%A8%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</loc>
-    
-    <lastmod>2019-07-26T12:09:29.966Z</lastmod>
     
   </url>
   
