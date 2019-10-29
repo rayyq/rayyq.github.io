@@ -2,24 +2,25 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>分类: Spring Cloud - Keanu</title>
+<title>Ribbon 负载均衡源码分析 - Keanu</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="Keanu 的技术小记">
-<meta name="keywords" content="Java,Tech">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Keanu">
-<meta property="og:url" content="http://keanu96.github.io/categories/Spring-Cloud/index.html">
+    <meta name="description" content="Ribbon 是 Netflix 公司开源的一个负载均衡项目。可以在 Zuul 中使用 Ribbon 做负载均衡，也可以和 Feign 结合使用。在 Spring Cloud 开发中使用的最多的可能就是 RestTemplate 和 Ribbon。代码可能如下： 12345678@Configurationpublic class RibbonConfig &amp;#123;    @Bean    @">
+<meta name="keywords" content="负载均衡,Ribbon">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ribbon 负载均衡源码分析">
+<meta property="og:url" content="http://keanu96.github.io/deep-in-ribbon/index.html">
 <meta property="og:site_name" content="Keanu">
-<meta property="og:description" content="Keanu 的技术小记">
+<meta property="og:description" content="Ribbon 是 Netflix 公司开源的一个负载均衡项目。可以在 Zuul 中使用 Ribbon 做负载均衡，也可以和 Feign 结合使用。在 Spring Cloud 开发中使用的最多的可能就是 RestTemplate 和 Ribbon。代码可能如下： 12345678@Configurationpublic class RibbonConfig &amp;#123;    @Bean    @">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://keanu96.github.io/images/og_image.png">
+<meta property="og:image" content="http://keanu96.github.io/deep-in-ribbon/thumbnail.jpg">
+<meta property="og:updated_time" content="2019-10-29T12:09:29.543Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Keanu">
-<meta name="twitter:description" content="Keanu 的技术小记">
-<meta name="twitter:image" content="http://keanu96.github.io/images/og_image.png">
+<meta name="twitter:title" content="Ribbon 负载均衡源码分析">
+<meta name="twitter:description" content="Ribbon 是 Netflix 公司开源的一个负载均衡项目。可以在 Zuul 中使用 Ribbon 做负载均衡，也可以和 Feign 结合使用。在 Spring Cloud 开发中使用的最多的可能就是 RestTemplate 和 Ribbon。代码可能如下： 12345678@Configurationpublic class RibbonConfig &amp;#123;    @Bean    @">
+<meta name="twitter:image" content="http://keanu96.github.io/deep-in-ribbon/thumbnail.jpg">
 
 
 
@@ -87,7 +88,7 @@
 
 <link rel="stylesheet" href="/css/style.css">
 </head>
-<!-- <body class="is-3-column"> -->
+<!-- <body class="is-2-column"> -->
 <body class="is-3-column">
     <nav class="navbar navbar-main">
     <div class="container">
@@ -126,6 +127,10 @@
                     
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -139,24 +144,12 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/categories">分类</a></li>
-            
-            <li class="is-active"><a href="#" aria-current="page">Spring Cloud</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main"><div class="card">
     
     <div class="card-image">
-        <a href="/deep-in-ribbon/" class="image is-7by1">
+        <span class="image is-7by1">
             <img class="thumbnail" src="/deep-in-ribbon/thumbnail.jpg" alt="Ribbon 负载均衡源码分析">
-        </a>
+        </span>
     </div>
     
     <div class="card-content article ">
@@ -182,7 +175,7 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/deep-in-ribbon/">Ribbon 负载均衡源码分析</a>
+                Ribbon 负载均衡源码分析
             
         </h1>
         <div class="content">
@@ -298,70 +291,24 @@
 
         </div>
         
+            <ul class="post-copyright">
+            <li><strong>本文标题：</strong><a href="http://keanu96.github.io/deep-in-ribbon/">Ribbon 负载均衡源码分析</a></li>
+            <li><strong>本文作者：</strong><a href="http://keanu96.github.io">Keanu</a></li>
+            <li><strong>本文链接：</strong><a href="http://keanu96.github.io/deep-in-ribbon/">http://keanu96.github.io/deep-in-ribbon/</a></li>
+            <li><strong>发布时间：</strong>2019-10-29</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+            </ul>
         
         
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-image">
-        <a href="/deep-in-eureka/" class="image is-7by1">
-            <img class="thumbnail" src="/deep-in-eureka/thumbnail.jpg" alt="微服务注册中心 Eureka 架构深入解读（转载）">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-10-03T13:15:06.000Z">2019-10-03</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Spring-Cloud/">Spring Cloud</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    28 分钟 读完 (大约 4166 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/deep-in-eureka/">微服务注册中心 Eureka 架构深入解读（转载）</a>
-            
-        </h1>
-        <div class="content">
-            <blockquote>
-<p>转载自 <a href="https://www.infoq.cn/article/jlDJQ*3wtN2PcqTDyokh" target="_blank" rel="noopener">微服务注册中心 Eureka 架构深入解读</a></p>
-</blockquote>
-<p>微服务架构中最核心的部分是服务治理，服务治理最基础的组件是注册中心。随着微服务架构的发展，出现了很多微服务架构的解决方案，其中包括我们熟知的 Dubbo 和 Spring Cloud。</p>
-<p>关于注册中心的解决方案，dubbo 支持了 Zookeeper、Redis、Multicast 和 Simple，官方推荐 Zookeeper。Spring Cloud 支持了 Zookeeper、Consul 和 Eureka，官方推荐 Eureka。</p>
-        </div>
-        
-        
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/deep-in-eureka/#more">阅读更多</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Ribbon/">Ribbon</a>, <a class="has-link-grey -link" href="/tags/负载均衡/">负载均衡</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -369,11 +316,76 @@
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/alipay.jpeg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/weixin.jpeg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/deep-into-JMM/">
+                <span class="level-item">深入理解Java内存模型(JMM)及Volatile关键字（转载）</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://keanu96.github.io/deep-in-ribbon/';
+        this.page.identifier = 'deep-in-ribbon/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'keanu96' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+    </div>
+</div>
 </div>
                 
 
@@ -474,683 +486,94 @@
 </div>
     
         
-
-<div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            链接
-        </h3>
-        <ul class="menu-list">
-        
-            <li>
-                <a class="level is-mobile" href="https://sccarterrans.github.io" target="_blank">
-                    <span class="level-left">
-                        <span class="level-item">辉</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">sccarterrans.github.io</span>
-                    </span>
-                </a>
-            </li>
-        
-            <li>
-                <a class="level is-mobile" href="https://github.com/P1nov" target="_blank">
-                    <span class="level-left">
-                        <span class="level-item">Pino(iOS)</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">github.com</span>
-                    </span>
-                </a>
-            </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-
-
-    
-        
-<div class="card widget">
+<div class="card widget column-left is-sticky" id="toc">
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                分类
+                目录
             </h3>
-            <ul class="menu-list">
-            <li>
-        <a class="level is-marginless" href="/categories/Hexo/">
-            <span class="level-start">
-                <span class="level-item">Hexo</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#负载均衡初始化">
+        <span class="has-mr-6">1</span>
+        <span>负载均衡初始化</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#LoadBalancerAutoConfiguration">
+        <span class="has-mr-6">1.1</span>
+        <span>LoadBalancerAutoConfiguration</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#拦截器配置">
+        <span class="has-mr-6">1.1.1</span>
+        <span>拦截器配置</span>
+        </a></li></ul></li></ul></li><li>
+        <a class="is-flex" href="#LoadBalancerClient-源码分析">
+        <span class="has-mr-6">2</span>
+        <span>LoadBalancerClient 源码分析</span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/Java/">
-            <span class="level-start">
-                <span class="level-item">Java</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">4</span>
-            </span>
+        <a class="is-flex" href="#DynamicServerListLoadBalancer">
+        <span class="has-mr-6">3</span>
+        <span>DynamicServerListLoadBalancer</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#成员介绍">
+        <span class="has-mr-6">3.1</span>
+        <span>成员介绍</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#IRule">
+        <span class="has-mr-6">3.1.1</span>
+        <span>IRule</span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/Leetcode/">
-            <span class="level-start">
-                <span class="level-item">Leetcode</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a><ul><li>
-        <a class="level is-marginless" href="/categories/Leetcode/Easy/">
-            <span class="level-start">
-                <span class="level-item">Easy</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
+        <a class="is-flex" href="#IPing">
+        <span class="has-mr-6">3.1.2</span>
+        <span>IPing</span>
+        </a></li><li>
+        <a class="is-flex" href="#ServerList">
+        <span class="has-mr-6">3.1.3</span>
+        <span>ServerList</span>
+        </a></li><li>
+        <a class="is-flex" href="#ServerListFilter">
+        <span class="has-mr-6">3.1.4</span>
+        <span>ServerListFilter</span>
         </a></li></ul></li><li>
-        <a class="level is-marginless" href="/categories/Redis/">
-            <span class="level-start">
-                <span class="level-item">Redis</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
+        <a class="is-flex" href="#源码分析">
+        <span class="has-mr-6">3.2</span>
+        <span>源码分析</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#DynamicServerListLoadBalancer-构造方法">
+        <span class="has-mr-6">3.2.1</span>
+        <span>DynamicServerListLoadBalancer 构造方法</span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/Spring/">
-            <span class="level-start">
-                <span class="level-item">Spring</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
+        <a class="is-flex" href="#restOfInit-执行剩下的初始化操作">
+        <span class="has-mr-6">3.2.2</span>
+        <span>restOfInit 执行剩下的初始化操作</span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/Spring-Cloud/">
-            <span class="level-start">
-                <span class="level-item">Spring Cloud</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a></li>
-            </ul>
+        <a class="is-flex" href="#obtainServersViaDiscovery">
+        <span class="has-mr-6">3.2.3</span>
+        <span>obtainServersViaDiscovery</span>
+        </a></li><li>
+        <a class="is-flex" href="#定时任务更新服务器列表和状态">
+        <span class="has-mr-6">3.2.4</span>
+        <span>定时任务更新服务器列表和状态</span>
+        </a></li></ul></li></ul></li><li>
+        <a class="is-flex" href="#总结">
+        <span class="has-mr-6">4</span>
+        <span>总结</span>
+        </a></li><li>
+        <a class="is-flex" href="#Ref">
+        <span class="has-mr-6">5</span>
+        <span>Ref</span>
+        </a></li></ul>
         </div>
     </div>
 </div>
-    
-        
+
     
     
         <div class="column-right-shadow is-hidden-widescreen ">
         
-            
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            标签云
-        </h3>
-        <a href="/tags/Algorithm/" style="font-size: 15px;">Algorithm</a> <a href="/tags/Binary-Tree/" style="font-size: 10px;">Binary Tree</a> <a href="/tags/Eureka/" style="font-size: 10px;">Eureka</a> <a href="/tags/Hexo-博客搭建/" style="font-size: 10px;">Hexo 博客搭建</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/Redis-持久化/" style="font-size: 10px;">Redis 持久化</a> <a href="/tags/Ribbon/" style="font-size: 10px;">Ribbon</a> <a href="/tags/Spring-IOC/" style="font-size: 10px;">Spring IOC</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/并发/" style="font-size: 20px;">并发</a> <a href="/tags/负载均衡/" style="font-size: 10px;">负载均衡</a>
-    </div>
-</div>
-
-        
-            
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            最新文章
-        </h3>
-        
-        <article class="media">
-            
-            <a href="/deep-in-ribbon/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/deep-in-ribbon/thumbnail.jpg" alt="Ribbon 负载均衡源码分析">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-29T12:54:16.000Z">2019-10-29</time></div>
-                    <a href="/deep-in-ribbon/" class="has-link-black-ter is-size-6">Ribbon 负载均衡源码分析</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Spring-Cloud/">Spring Cloud</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/deep-into-JMM/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/deep-into-JMM/thumbnail.jpg" alt="深入理解Java内存模型(JMM)及Volatile关键字（转载）">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-28T14:45:52.000Z">2019-10-28</time></div>
-                    <a href="/deep-into-JMM/" class="has-link-black-ter is-size-6">深入理解Java内存模型(JMM)及Volatile关键字（转载）</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Java/">Java</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/volatile学习笔记/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/volatile学习笔记/thumbnail.jpg" alt="volatile学习笔记">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-15T15:18:25.000Z">2019-10-15</time></div>
-                    <a href="/volatile学习笔记/" class="has-link-black-ter is-size-6">volatile学习笔记</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Java/">Java</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/deep-in-eureka/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/deep-in-eureka/thumbnail.jpg" alt="微服务注册中心 Eureka 架构深入解读（转载）">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-03T13:15:06.000Z">2019-10-03</time></div>
-                    <a href="/deep-in-eureka/" class="has-link-black-ter is-size-6">微服务注册中心 Eureka 架构深入解读（转载）</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Spring-Cloud/">Spring Cloud</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/deep-in-synchronized/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/deep-in-synchronized/thumbnail.jpg" alt="【Java 并发】synchornized学习笔记">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-07T01:44:19.000Z">2019-09-07</time></div>
-                    <a href="/deep-in-synchronized/" class="has-link-black-ter is-size-6">【Java 并发】synchornized学习笔记</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Java/">Java</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
-
-        
-            <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            归档
-        </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/10/">
-                <span class="level-start">
-                    <span class="level-item">十月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/09/">
-                <span class="level-start">
-                    <span class="level-item">九月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/08/">
-                <span class="level-start">
-                    <span class="level-item">八月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/07/">
-                <span class="level-start">
-                    <span class="level-item">七月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/05/">
-                <span class="level-start">
-                    <span class="level-item">五月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">3</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-        
-            <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                标签
-            </h3>
-            <div class="field is-grouped is-grouped-multiline">
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Algorithm/">
-                        <span class="tag">Algorithm</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Binary-Tree/">
-                        <span class="tag">Binary Tree</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Eureka/">
-                        <span class="tag">Eureka</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Hexo-博客搭建/">
-                        <span class="tag">Hexo 博客搭建</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/JVM/">
-                        <span class="tag">JVM</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Redis-持久化/">
-                        <span class="tag">Redis 持久化</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Ribbon/">
-                        <span class="tag">Ribbon</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Spring-IOC/">
-                        <span class="tag">Spring IOC</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Spring-MVC/">
-                        <span class="tag">Spring MVC</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/并发/">
-                        <span class="tag">并发</span>
-                        <span class="tag is-grey">3</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/负载均衡/">
-                        <span class="tag">负载均衡</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-</div>
-        
         </div>
     
 </div>
 
                 
-
-
-
-
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            标签云
-        </h3>
-        <a href="/tags/Algorithm/" style="font-size: 15px;">Algorithm</a> <a href="/tags/Binary-Tree/" style="font-size: 10px;">Binary Tree</a> <a href="/tags/Eureka/" style="font-size: 10px;">Eureka</a> <a href="/tags/Hexo-博客搭建/" style="font-size: 10px;">Hexo 博客搭建</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/Redis-持久化/" style="font-size: 10px;">Redis 持久化</a> <a href="/tags/Ribbon/" style="font-size: 10px;">Ribbon</a> <a href="/tags/Spring-IOC/" style="font-size: 10px;">Spring IOC</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/并发/" style="font-size: 20px;">并发</a> <a href="/tags/负载均衡/" style="font-size: 10px;">负载均衡</a>
-    </div>
-</div>
-
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            最新文章
-        </h3>
-        
-        <article class="media">
-            
-            <a href="/deep-in-ribbon/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/deep-in-ribbon/thumbnail.jpg" alt="Ribbon 负载均衡源码分析">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-29T12:54:16.000Z">2019-10-29</time></div>
-                    <a href="/deep-in-ribbon/" class="has-link-black-ter is-size-6">Ribbon 负载均衡源码分析</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Spring-Cloud/">Spring Cloud</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/deep-into-JMM/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/deep-into-JMM/thumbnail.jpg" alt="深入理解Java内存模型(JMM)及Volatile关键字（转载）">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-28T14:45:52.000Z">2019-10-28</time></div>
-                    <a href="/deep-into-JMM/" class="has-link-black-ter is-size-6">深入理解Java内存模型(JMM)及Volatile关键字（转载）</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Java/">Java</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/volatile学习笔记/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/volatile学习笔记/thumbnail.jpg" alt="volatile学习笔记">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-15T15:18:25.000Z">2019-10-15</time></div>
-                    <a href="/volatile学习笔记/" class="has-link-black-ter is-size-6">volatile学习笔记</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Java/">Java</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/deep-in-eureka/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/deep-in-eureka/thumbnail.jpg" alt="微服务注册中心 Eureka 架构深入解读（转载）">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-03T13:15:06.000Z">2019-10-03</time></div>
-                    <a href="/deep-in-eureka/" class="has-link-black-ter is-size-6">微服务注册中心 Eureka 架构深入解读（转载）</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Spring-Cloud/">Spring Cloud</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/deep-in-synchronized/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/deep-in-synchronized/thumbnail.jpg" alt="【Java 并发】synchornized学习笔记">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-07T01:44:19.000Z">2019-09-07</time></div>
-                    <a href="/deep-in-synchronized/" class="has-link-black-ter is-size-6">【Java 并发】synchornized学习笔记</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Java/">Java</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
-
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            归档
-        </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/10/">
-                <span class="level-start">
-                    <span class="level-item">十月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/09/">
-                <span class="level-start">
-                    <span class="level-item">九月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/08/">
-                <span class="level-start">
-                    <span class="level-item">八月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/07/">
-                <span class="level-start">
-                    <span class="level-item">七月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/05/">
-                <span class="level-start">
-                    <span class="level-item">五月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">3</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                标签
-            </h3>
-            <div class="field is-grouped is-grouped-multiline">
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Algorithm/">
-                        <span class="tag">Algorithm</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Binary-Tree/">
-                        <span class="tag">Binary Tree</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Eureka/">
-                        <span class="tag">Eureka</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Hexo-博客搭建/">
-                        <span class="tag">Hexo 博客搭建</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/JVM/">
-                        <span class="tag">JVM</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Redis-持久化/">
-                        <span class="tag">Redis 持久化</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Ribbon/">
-                        <span class="tag">Ribbon</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Spring-IOC/">
-                        <span class="tag">Spring IOC</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Spring-MVC/">
-                        <span class="tag">Spring MVC</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/并发/">
-                        <span class="tag">并发</span>
-                        <span class="tag is-grey">3</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/负载均衡/">
-                        <span class="tag">负载均衡</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-</div>
-    
-    
-</div>
-
             </div>
         </div>
     </section>
