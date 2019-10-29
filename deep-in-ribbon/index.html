@@ -16,7 +16,7 @@
 <meta property="og:description" content="Ribbon 是 Netflix 公司开源的一个负载均衡项目。可以在 Zuul 中使用 Ribbon 做负载均衡，也可以和 Feign 结合使用。在 Spring Cloud 开发中使用的最多的可能就是 RestTemplate 和 Ribbon。代码可能如下： 12345678@Configurationpublic class RibbonConfig &amp;#123;    @Bean    @">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://keanu96.github.io/deep-in-ribbon/thumbnail.jpg">
-<meta property="og:updated_time" content="2019-10-29T12:09:29.543Z">
+<meta property="og:updated_time" content="2019-10-29T12:13:01.063Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ribbon 负载均衡源码分析">
 <meta name="twitter:description" content="Ribbon 是 Netflix 公司开源的一个负载均衡项目。可以在 Zuul 中使用 Ribbon 做负载均衡，也可以和 Feign 结合使用。在 Spring Cloud 开发中使用的最多的可能就是 RestTemplate 和 Ribbon。代码可能如下： 12345678@Configurationpublic class RibbonConfig &amp;#123;    @Bean    @">
@@ -166,7 +166,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    28 分钟 读完 (大约 4161 个字)
+                    28 分钟 读完 (大约 4162 个字)
                 </span>
                 
                 
@@ -184,6 +184,7 @@
 <p>使用 RestTemplate 消费服务接口的代码可能是这样的：</p>
 <figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@Service</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RibbonService</span> </span>&#123;</span><br><span class="line">    <span class="hljs-meta">@Autowired</span></span><br><span class="line">    <span class="hljs-keyword">private</span> RestTemplate restTemplate;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">hi</span><span class="hljs-params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> restTemplate.getForObject(<span class="hljs-string">"http://eureka-client/hi?name="</span>+name,String.class);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>RestTemplate 在 Spring 中就已经存在了，查看以上的代码可以发现 RestTemplate Bean 上有一个 @LoadBalanced 注解，这个注解标记在 RestTemplate 上，让负载均衡客户端 LoadBalancerClient 来配置它。</p>
+<a id="more"></a>
 <h1 id="负载均衡初始化"><a href="#负载均衡初始化" class="headerlink" title="负载均衡初始化"></a>负载均衡初始化</h1><p>spring-cloud-commons 包中定义了 <font style="color:red"><strong>LoadBalancerClient</strong></font> 接口，它是 Ribbon 中一个非常重要的组件。继承结构如下：</p>
 <p><img src="LoadBalancerClient 继承结构.png" alt="LoadBalancerClient 继承结构"></p>
 <h2 id="LoadBalancerAutoConfiguration"><a href="#LoadBalancerAutoConfiguration" class="headerlink" title="LoadBalancerAutoConfiguration"></a>LoadBalancerAutoConfiguration</h2><p>而在 spring-cloud-commons 中相同的包下面，可以看到 LoadBalancerAutoConfiguration，看类名就能看出来这是一个自动配置类，会在启动时自动加载其中的配置：</p>
