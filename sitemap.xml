@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://keanu96.github.io/deep-into-JMM/</loc>
+    
+    <lastmod>2019-10-30T12:37:49.060Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://keanu96.github.io/about/index.html</loc>
     
     <lastmod>2019-10-29T13:42:14.454Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://keanu96.github.io/deep-in-ribbon/</loc>
     
     <lastmod>2019-10-29T12:13:01.063Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://keanu96.github.io/deep-into-JMM/</loc>
-    
-    <lastmod>2019-10-28T14:04:13.319Z</lastmod>
     
   </url>
   
