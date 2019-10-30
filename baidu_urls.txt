@@ -1,3 +1,12 @@
 http://keanu96.github.io/deep-in-ribbon/
 http://keanu96.github.io/deep-into-JMM/
 http://keanu96.github.io/volatile学习笔记/
+http://keanu96.github.io/deep-in-eureka/
+http://keanu96.github.io/deep-in-synchronized/
+http://keanu96.github.io/paxos-made-simple/
+http://keanu96.github.io/jvm-garbage-collection/
+http://keanu96.github.io/build-hexo-blog/
+http://keanu96.github.io/redis-persistence/
+http://keanu96.github.io/maximum-depth-of-binary-tree/
+http://keanu96.github.io/Spring-MVC-源码分析/
+http://keanu96.github.io/Spring-IOC-容器源码分析/
