@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://keanu96.github.io/"/>
-  <updated>2019-11-11T11:17:30.550Z</updated>
+  <updated>2020-03-14T00:49:29.686Z</updated>
   <id>http://keanu96.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Athena and Macie</title>
+    <link href="http://keanu96.github.io/athena-and-macie/"/>
+    <id>http://keanu96.github.io/athena-and-macie/</id>
+    <published>2020-03-14T01:46:59.000Z</published>
+    <updated>2020-03-14T00:49:29.686Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Athena"><a href="#Athena" class="headerlink" title="Athena"></a>Athena</h1><h2 id="What-is-Athena"><a href="#What-is-Athena" class="headerlink" title="What is Athena"></a>What is Athena</h2><p><strong>Athena is a interactive query service which enables you to analyse and query data located in S3 using standard SQL.</strong></p><ul><li>Serverless, nothing to provision, pay per query / per TB scanned</li><li>No need to set up complex Extract/Transform/Load(ETL) process</li><li>Works directly with data stored in S3</li></ul><h2 id="Athena-Use-Case"><a href="#Athena-Use-Case" class="headerlink" title="Athena Use Case"></a>Athena Use Case</h2><h3 id="What-can-Athena-be-used-for"><a href="#What-can-Athena-be-used-for" class="headerlink" title="What can Athena be used for?"></a>What can Athena be used for?</h3><ul><li>Query log files stored in S3: e.g. ELB logs, S3 access logs etc</li><li>Generate business reports on data stored in S3</li><li>Analyse AWS cost nad usage reports</li><li>Run queries on click-stream data</li></ul><h1 id="Macie"><a href="#Macie" class="headerlink" title="Macie"></a>Macie</h1><h2 id="What-is-PII-Personally-Identifiable-Information"><a href="#What-is-PII-Personally-Identifiable-Information" class="headerlink" title="What is PII(Personally Identifiable Information)?"></a>What is PII(Personally Identifiable Information)?</h2><ul><li>Personal data used to establish an indevidual’s identity</li><li>Could be exploited by criminals, used in identity theft and financial fraud</li><li>Home address, emal address</li><li>Passport number, driver’s license number</li><li>…</li></ul><h2 id="What-is-Macie"><a href="#What-is-Macie" class="headerlink" title="What is Macie"></a>What is Macie</h2><p><strong>Security service which uses Machine Learning and NLP to discover, classify and protect sensitive data stored in S3</strong></p><ul><li>Uses AI to recognise if your S3 objects contain sensitive data such as PII</li><li>Dashboards, reporting and alerts</li><li>Works directly with data stored in S3</li><li>Can also analyze CloudTrail logs</li><li>Great for PCI-DSS and preventing ID theft</li></ul><h2 id="Macie-Exam-Tips"><a href="#Macie-Exam-Tips" class="headerlink" title="Macie Exam Tips"></a>Macie Exam Tips</h2><p><strong>Remember What is Macie used for:</strong></p><ul><li>Uses AI to analyze data in S3 and helps identify PII</li><li>Analyse CloudTrail logs for suspicious API activity</li><li>Dashboards, Reports and Alerting</li><li>PCI-DSS compliance and preventing ID theft</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Athena&quot;&gt;&lt;a href=&quot;#Athena&quot; class=&quot;headerlink&quot; title=&quot;Athena&quot;&gt;&lt;/a&gt;Athena&lt;/h1&gt;&lt;h2 id=&quot;What-is-Athena&quot;&gt;&lt;a href=&quot;#What-is-Athena&quot; class=&quot;
+      
+    
+    </summary>
+    
+      <category term="AWS" scheme="http://keanu96.github.io/categories/AWS/"/>
+    
+    
+      <category term="Athena" scheme="http://keanu96.github.io/tags/Athena/"/>
+    
+      <category term="Macie" scheme="http://keanu96.github.io/tags/Macie/"/>
+    
+  </entry>
   
   <entry>
     <title>Ribbon 负载均衡源码分析</title>
