@@ -107,18 +107,21 @@
 
 
 
-  <meta name="description" content="volatile 应该经常听说或者用到的。它在并发编程中起到了什么作用呢？  volatile 能禁止编译器和CPU对指令重排序 对 volatile 变量的操作插入内存屏障，保证内存的可见性  这是我学习 volatile 的笔记，在这里记录一下。">
-<meta name="keywords" content="并发">
+  <meta name="description" content="IAM - Identity Access ManagementIAM consists of the followings:  Users Groups Roles Policies We can use follow json data to custom policies:   12345678910&amp;#123;  &quot;Version&quot;: &quot;2020-03-14&quot;,  &quot;Statement&quot;:">
+<meta name="keywords" content="S3,IAM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="volatile学习笔记">
-<meta property="og:url" content="http://keanu96.github.io/volatile学习笔记/index.html">
+<meta property="og:title" content="AWS S3 &amp; IAM Summary">
+<meta property="og:url" content="http://keanu96.github.io/s3-iam-summary/index.html">
 <meta property="og:site_name" content="Keanu">
-<meta property="og:description" content="volatile 应该经常听说或者用到的。它在并发编程中起到了什么作用呢？  volatile 能禁止编译器和CPU对指令重排序 对 volatile 变量的操作插入内存屏障，保证内存的可见性  这是我学习 volatile 的笔记，在这里记录一下。">
+<meta property="og:description" content="IAM - Identity Access ManagementIAM consists of the followings:  Users Groups Roles Policies We can use follow json data to custom policies:   12345678910&amp;#123;  &quot;Version&quot;: &quot;2020-03-14&quot;,  &quot;Statement&quot;:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-11T11:18:07.640Z">
+<meta property="og:image" content="http://keanu96.github.io/s3-iam-summary/S3_Storage_level.png">
+<meta property="og:image" content="http://keanu96.github.io/s3-iam-summary/best_practices_with_AWS_organizations.png">
+<meta property="og:updated_time" content="2020-03-14T05:56:49.759Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="volatile学习笔记">
-<meta name="twitter:description" content="volatile 应该经常听说或者用到的。它在并发编程中起到了什么作用呢？  volatile 能禁止编译器和CPU对指令重排序 对 volatile 变量的操作插入内存屏障，保证内存的可见性  这是我学习 volatile 的笔记，在这里记录一下。">
+<meta name="twitter:title" content="AWS S3 &amp; IAM Summary">
+<meta name="twitter:description" content="IAM - Identity Access ManagementIAM consists of the followings:  Users Groups Roles Policies We can use follow json data to custom policies:   12345678910&amp;#123;  &quot;Version&quot;: &quot;2020-03-14&quot;,  &quot;Statement&quot;:">
+<meta name="twitter:image" content="http://keanu96.github.io/s3-iam-summary/S3_Storage_level.png">
 
 
 
@@ -128,7 +131,7 @@
 
   
   
-  <link rel="canonical" href="http://keanu96.github.io/volatile学习笔记/">
+  <link rel="canonical" href="http://keanu96.github.io/s3-iam-summary/">
 
 
 
@@ -138,7 +141,7 @@
   };
 </script>
 
-  <title>volatile学习笔记 | Keanu</title>
+  <title>AWS S3 & IAM Summary | Keanu</title>
   
 
 
@@ -411,7 +414,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://keanu96.github.io/volatile学习笔记/">
+    <link itemprop="mainEntityOfPage" href="http://keanu96.github.io/s3-iam-summary/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Keanu">
@@ -428,7 +431,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">volatile学习笔记
+          <h2 class="post-title" itemprop="name headline">AWS S3 & IAM Summary
 
               
             
@@ -454,24 +457,12 @@
                 
               
 
-              <time title="创建时间：2019-10-15 23:18:25" itemprop="dateCreated datePublished" datetime="2019-10-15T23:18:25+08:00">2019-10-15</time>
+              <time title="创建时间：2020-03-14 14:52:49 / 修改时间：13:56:49" itemprop="dateCreated datePublished" datetime="2020-03-14T14:52:49+08:00">2020-03-14</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-11-11 19:18:07" itemprop="dateModified" datetime="2019-11-11T19:18:07+08:00">2019-11-11</time>
               
             
           </span>
@@ -488,7 +479,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/AWS/" itemprop="url" rel="index"><span itemprop="name">AWS</span></a></span>
 
                 
                 
@@ -507,8 +498,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/volatile学习笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="volatile学习笔记/" itemprop="commentCount"></span>
+                <a href="/s3-iam-summary/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="s3-iam-summary/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -530,7 +521,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">7.5k</span>
+                <span title="本文字数">5.2k</span>
               
 
               
@@ -544,7 +535,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">7 分钟</span>
+                <span title="阅读时长">5 分钟</span>
               
             </div>
           
@@ -564,40 +555,121 @@
       
 
       
-        <p>volatile 应该经常听说或者用到的。它在并发编程中起到了什么作用呢？</p>
+        <h1 id="IAM-Identity-Access-Management"><a href="#IAM-Identity-Access-Management" class="headerlink" title="IAM - Identity Access Management"></a>IAM - Identity Access Management</h1><p>IAM consists of the followings:</p>
 <ul>
-<li>volatile 能禁止编译器和CPU对指令重排序</li>
-<li>对 volatile 变量的操作插入内存屏障，保证内存的可见性</li>
-</ul>
-<p>这是我学习 volatile 的笔记，在这里记录一下。</p>
-<a id="more"></a>
-<h2 id="volatile-在-JVM-中如何实现"><a href="#volatile-在-JVM-中如何实现" class="headerlink" title="volatile 在 JVM 中如何实现"></a>volatile 在 JVM 中如何实现</h2><p>被 volatile 修饰的变量在编译之后的指令中，定义变量的 flags 会加上 ACC_VOLATILE 标志。<code>javap -v</code> 查看字节码。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line">Classfile /Users/leiyongqi/IdeaProjects/study/target/classes/com/keanu/io/study/concurrency/VolatileDemo.class</span><br><span class="line">  Last modified <span class="number">2019</span>-<span class="number">10</span>-<span class="number">15</span>; size <span class="number">583</span> bytes</span><br><span class="line">  MD5 checksum <span class="number">0</span>b39c03d7d60166f7ab82b07bc3fc58d</span><br><span class="line">  Compiled from <span class="string">"VolatileDemo.java"</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">com</span>.<span class="title">keanu</span>.<span class="title">io</span>.<span class="title">study</span>.<span class="title">concurrency</span>.<span class="title">VolatileDemo</span></span></span><br><span class="line">  minor version: 0</span><br><span class="line">  major version: <span class="number">49</span></span><br><span class="line">  flags: ACC_PUBLIC, ACC_SUPER</span><br><span class="line">Constant pool:</span><br><span class="line">   #1 = Methodref          #6.#23         // java/lang/Object."&lt;init&gt;":()V</span><br><span class="line">   #2 = Fieldref           #3.#24         // com/keanu/io/study/concurrency/VolatileDemo.i:I</span><br><span class="line">   #3 = Class              #25            // com/keanu/io/study/concurrency/VolatileDemo</span><br><span class="line">   #4 = Methodref          #3.#23         // com/keanu/io/study/concurrency/VolatileDemo."&lt;init&gt;":()V</span><br><span class="line">   #5 = Methodref          #3.#26         // com/keanu/io/study/concurrency/VolatileDemo.incr:()V</span><br><span class="line">   #6 = Class              #27            // java/lang/Object</span><br><span class="line">   #7 = Utf8               i</span><br><span class="line">   #8 = Utf8               I</span><br><span class="line">   #9 = Utf8               &lt;init&gt;</span><br><span class="line">  #10 = Utf8               ()V</span><br><span class="line">  #11 = Utf8               Code</span><br><span class="line">  #12 = Utf8               LineNumberTable</span><br><span class="line">  #13 = Utf8               LocalVariableTable</span><br><span class="line">  #14 = Utf8               this</span><br><span class="line">  #15 = Utf8               Lcom/keanu/io/study/concurrency/VolatileDemo;</span><br><span class="line">  #16 = Utf8               incr</span><br><span class="line">  #17 = Utf8               main</span><br><span class="line">  #18 = Utf8               ([Ljava/lang/String;)V</span><br><span class="line">  #19 = Utf8               args</span><br><span class="line">  #20 = Utf8               [Ljava/lang/String;</span><br><span class="line">  #21 = Utf8               SourceFile</span><br><span class="line">  #22 = Utf8               VolatileDemo.java</span><br><span class="line">  #23 = NameAndType        #9:#10         // "&lt;init&gt;":()V</span><br><span class="line">  #24 = NameAndType        #7:#8          // i:I</span><br><span class="line">  #25 = Utf8               com/keanu/io/study/concurrency/VolatileDemo</span><br><span class="line">  #26 = NameAndType        #16:#10        // incr:()V</span><br><span class="line">  #27 = Utf8               java/lang/Object</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">volatile</span> <span class="keyword">int</span> i;</span><br><span class="line">    descriptor: I</span><br><span class="line">    flags: ACC_VOLATILE</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> com.keanu.io.study.concurrency.VolatileDemo();</span><br><span class="line">    descriptor: ()V</span><br><span class="line">    flags: ACC_PUBLIC</span><br><span class="line">    Code:</span><br><span class="line">      stack=<span class="number">2</span>, locals=<span class="number">1</span>, args_size=<span class="number">1</span></span><br><span class="line">         <span class="number">0</span>: aload_0</span><br><span class="line">         1: invokespecial #1                  // Method java/lang/Object."&lt;init&gt;":()V</span><br><span class="line">         <span class="number">4</span>: aload_0</span><br><span class="line">         <span class="number">5</span>: iconst_0</span><br><span class="line">         6: putfield      #2                  // Field i:I</span><br><span class="line">         <span class="number">9</span>: <span class="keyword">return</span></span><br><span class="line">      LineNumberTable:</span><br><span class="line">        line <span class="number">3</span>: <span class="number">0</span></span><br><span class="line">        line <span class="number">5</span>: <span class="number">4</span></span><br><span class="line">      LocalVariableTable:</span><br><span class="line">        Start  Length  Slot  Name   Signature</span><br><span class="line">            <span class="number">0</span>      <span class="number">10</span>     <span class="number">0</span>  <span class="keyword">this</span>   Lcom/keanu/io/study/concurrency/VolatileDemo;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">incr</span><span class="params">()</span></span>;</span><br><span class="line">    descriptor: ()V</span><br><span class="line">    flags: ACC_PUBLIC</span><br><span class="line">    Code:</span><br><span class="line">      stack=<span class="number">3</span>, locals=<span class="number">1</span>, args_size=<span class="number">1</span></span><br><span class="line">         <span class="number">0</span>: aload_0</span><br><span class="line">         <span class="number">1</span>: dup</span><br><span class="line">         2: getfield      #2                  // Field i:I</span><br><span class="line">         <span class="number">5</span>: iconst_1</span><br><span class="line">         <span class="number">6</span>: iadd</span><br><span class="line">         7: putfield      #2                  // Field i:I</span><br><span class="line">        <span class="number">10</span>: <span class="keyword">return</span></span><br><span class="line">      LineNumberTable:</span><br><span class="line">        line <span class="number">8</span>: <span class="number">0</span></span><br><span class="line">        line <span class="number">9</span>: <span class="number">10</span></span><br><span class="line">      LocalVariableTable:</span><br><span class="line">        Start  Length  Slot  Name   Signature</span><br><span class="line">            <span class="number">0</span>      <span class="number">11</span>     <span class="number">0</span>  <span class="keyword">this</span>   Lcom/keanu/io/study/concurrency/VolatileDemo;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(java.lang.String[])</span></span>;</span><br><span class="line">    descriptor: ([Ljava/lang/String;)V</span><br><span class="line">    flags: ACC_PUBLIC, ACC_STATIC</span><br><span class="line">    Code:</span><br><span class="line">      stack=<span class="number">2</span>, locals=<span class="number">1</span>, args_size=<span class="number">1</span></span><br><span class="line">         0: new           #3                  // class com/keanu/io/study/concurrency/VolatileDemo</span><br><span class="line">         <span class="number">3</span>: dup</span><br><span class="line">         4: invokespecial #4                  // Method "&lt;init&gt;":()V</span><br><span class="line">         7: invokevirtual #5                  // Method incr:()V</span><br><span class="line">        <span class="number">10</span>: <span class="keyword">return</span></span><br><span class="line">      LineNumberTable:</span><br><span class="line">        line <span class="number">12</span>: <span class="number">0</span></span><br><span class="line">        line <span class="number">13</span>: <span class="number">10</span></span><br><span class="line">      LocalVariableTable:</span><br><span class="line">        Start  Length  Slot  Name   Signature</span><br><span class="line">            <span class="number">0</span>      <span class="number">11</span>     <span class="number">0</span>  args   [Ljava/lang/String;</span><br><span class="line">&#125;</span><br><span class="line">SourceFile: <span class="string">"VolatileDemo.java"</span></span><br></pre></td></tr></table></figure>
-<p>ACC_VOLATILE 标志被定义在 JVM 源码的 accessFlags.hpp 中。 </p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// accessFlags.hpp</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">is_volatile</span> <span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> (_flags &amp; JVM_ACC_VOLATILE) != <span class="number">0</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bytecodeInterpreter.cpp</span></span><br><span class="line"><span class="comment">// 存储变量时，判断是否被 volatile 修饰</span></span><br><span class="line"><span class="keyword">if</span> (cache -&gt; is_volatile()) &#123;</span><br><span class="line">    <span class="comment">// 判断数据类型，根据不同的数据类型执行不同的方法</span></span><br><span class="line">    <span class="keyword">if</span> (tos_type == itos) &#123;</span><br><span class="line">        <span class="comment">// int 类型</span></span><br><span class="line">       obj -&gt; release_int_field_put(field_offset, STACK_INT(<span class="number">-1</span>));</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (tos_type == atos) &#123; <span class="comment">// obj 对象类型</span></span><br><span class="line">        VERIFY_OOP(STACK_OBJECT(<span class="number">-1</span>));</span><br><span class="line">        obj -&gt; release_obj_field_put(field_offset, STACK_OBJECT(<span class="number">-1</span>));</span><br><span class="line">        OrderAccess::release_store(&amp;BYTE_MAP_BASE[(<span class="keyword">uintptr_t</span>)obj &gt;&gt; CardTableModRefBS::card_shift], <span class="number">0</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (tos_type == btos) &#123;</span><br><span class="line">        <span class="comment">// byte 类型</span></span><br><span class="line">        obj -&gt; release_byte_field_put(field_offset, STACK_INT(<span class="number">-1</span>));</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (tos_type == ltos) &#123;</span><br><span class="line">        <span class="comment">// long 类型</span></span><br><span class="line">        obj -&gt; release_long_field_put(field_offset, STACK_LONG(<span class="number">-1</span>));</span><br><span class="line">    &#125; <span class="comment">// ... char, short, float, double 省略</span></span><br><span class="line">    <span class="comment">// 执行完毕后，执行下面这个方法</span></span><br><span class="line">    OrderAccess::storeload();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// oop.inline.cpp</span></span><br><span class="line"><span class="comment">// release_int_field_put 方法在此文件中</span></span><br><span class="line"><span class="keyword">inline</span> <span class="keyword">void</span> oopDesc::release_int_field_put(<span class="keyword">int</span> offset, jint contents) &#123; OrderAccess::release_store(int_field_addr(offset), contents);  &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// release_store 方法在 orderAccess.hpp 中定义</span></span><br><span class="line"><span class="comment">// orderAccess.hpp</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">release_store</span><span class="params">(<span class="keyword">volatile</span> jint* p, jint v)</span></span>; <span class="comment">//还有对其他数据类型的定义</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 具体的实现根据不同的操作系统CPU进行实现 Linux, Windows.. 等等 CPU </span></span><br><span class="line"><span class="comment">// 例如：orderAccess_linux_x86.inline.hpp</span></span><br><span class="line"><span class="keyword">inline</span> <span class="keyword">void</span> OrderAccess::release_store(<span class="keyword">volatile</span> jint* p, jint v) &#123; *p = v; &#125; <span class="comment">// 此处 volatile，语言级别的内存屏障。防止指令重排序，强制对缓存修改，立即写入到主内存中，使其他 CPU 的缓存失效。</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>对每个 volatile 变量的写操作的前面会插入 storestore barrier。</li>
-<li>对每个 volatile 变量的写操作后会插入 storeload barrier。</li>
-<li>对每个 volatile 读操作之前插入 loadload barrier。</li>
-<li>对每个 volatile 读操作之后插入 loadstore barrier。</li>
-</ol>
-<p>以上代码第 23 行证实了第二点：(其他的可以在其他源码中找到)</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">OrderAccess::storeload(); <span class="comment">// 这是在写操作完毕之后，执行的方法。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 该方法在 orderAccess_linux_x86.inline.hpp 中（此处只看这一个实现）</span></span><br><span class="line"><span class="keyword">inline</span> <span class="keyword">void</span> OrderAccess::loadload() &#123; acquire(); &#125;</span><br><span class="line"><span class="keyword">inline</span> <span class="keyword">void</span> OrderAccess::storestore() &#123; release(); &#125;</span><br><span class="line"><span class="keyword">inline</span> <span class="keyword">void</span> OrderAccess::loadstore() &#123; acquire(); &#125;</span><br><span class="line"><span class="keyword">inline</span> <span class="keyword">void</span> OrderAccess::storeload() &#123; fence(); &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// fence() 方法中会在指令之前加入 lock 前缀。（汇编指令）。。。汇编指令没有深入研究，不贴代码了。</span></span><br></pre></td></tr></table></figure>
-<p>所以 volatile 修饰符可以保证内存的可见性（内存屏障）。</p>
-<h2 id="volatile-原子性问题"><a href="#volatile-原子性问题" class="headerlink" title="volatile 原子性问题"></a>volatile 原子性问题</h2><p>volatile 变量的复合操作是无法保证原子性问题的。为什么呢？</p>
-<p>例如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.keanu.io.study.concurrency;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VolatileDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">volatile</span> <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">incr</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> VolatileDemo().incr();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>被 JVM 编译之后（使用 javap -c 指令查看字节码）：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">com</span>.<span class="title">keanu</span>.<span class="title">io</span>.<span class="title">study</span>.<span class="title">concurrency</span>.<span class="title">VolatileDemo</span> </span>&#123;</span><br><span class="line">  <span class="keyword">volatile</span> <span class="keyword">int</span> i;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> com.keanu.io.study.concurrency.VolatileDemo();</span><br><span class="line">    Code:</span><br><span class="line">       <span class="number">0</span>: aload_0</span><br><span class="line">       1: invokespecial #1                  // Method java/lang/Object."&lt;init&gt;":()V</span><br><span class="line">       <span class="number">4</span>: aload_0</span><br><span class="line">       <span class="number">5</span>: iconst_0</span><br><span class="line">       6: putfield      #2                  // Field i:I</span><br><span class="line">       <span class="number">9</span>: <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">incr</span><span class="params">()</span></span>;</span><br><span class="line">    Code:</span><br><span class="line">       <span class="number">0</span>: aload_0</span><br><span class="line">       <span class="number">1</span>: dup</span><br><span class="line">       2: getfield      #2                  // Field i:I</span><br><span class="line">       <span class="number">5</span>: iconst_1</span><br><span class="line">       <span class="number">6</span>: iadd</span><br><span class="line">       7: putfield      #2                  // Field i:I</span><br><span class="line">      <span class="number">10</span>: <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(java.lang.String[])</span></span>;</span><br><span class="line">    Code:</span><br><span class="line">       0: new           #3                  // class com/keanu/io/study/concurrency/VolatileDemo</span><br><span class="line">       <span class="number">3</span>: dup</span><br><span class="line">       4: invokespecial #4                  // Method "&lt;init&gt;":()V</span><br><span class="line">       7: invokevirtual #5                  // Method incr:()V</span><br><span class="line">      <span class="number">10</span>: <span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以看到，编译之后的指令中，i++（复合操作） 的操作分成了 3步，以上代码的 17，19，20 行。</p>
-<ol>
-<li>getfield</li>
-<li>iadd</li>
-<li><p>putfield</p>
-<p>当有多个线程同时执行时，有可能同一时间有多个线程同时执行了 getfield 指令，可能就会有一个线程拿到的是旧值，这就造成了原子性问题。</p>
+<li>Users</li>
+<li>Groups</li>
+<li>Roles</li>
+<li><p>Policies</p>
+<p>We can use follow json data to custom policies:</p>
 </li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"Version"</span>: <span class="string">"2020-03-14"</span>,</span><br><span class="line">  <span class="attr">"Statement"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"Effect"</span>: <span class="string">"Allow"</span>,</span><br><span class="line">      <span class="attr">"Action"</span>: <span class="string">"*"</span>,</span><br><span class="line">      <span class="attr">"Resource"</span>: <span class="string">"*"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="IAM-Knowledge-Point"><a href="#IAM-Knowledge-Point" class="headerlink" title="IAM Knowledge Point"></a>IAM Knowledge Point</h2><ul>
+<li>IAM is universal. Does not apply to regions at this time</li>
+<li>The “root account” is simply the account created when first setip your AWS account. It has complete Admin access.</li>
+<li>New Users have No Permissions when first created</li>
+<li>New Users are assigned <strong>Access Key ID</strong> and <strong>Access Keys</strong> when first created</li>
+<li><strong>Access Key ID</strong> and <strong>Access Keys</strong> are not same as passwords. We can not use them to login in to the AWS console. But we can use them to access AWS via then APIs nad Command Line.</li>
+<li>We can only view <strong>Access Keys</strong> once. If we lose them, we have to regenerate them.</li>
+<li>IAM requires us to setup Mutifactor Authentication on our root account</li>
+<li>We can create and customise our own password rotation policies</li>
+</ul>
+<h1 id="S3-Simple-Storage-Service"><a href="#S3-Simple-Storage-Service" class="headerlink" title="S3- Simple Storage Service"></a>S3- Simple Storage Service</h1><h2 id="S3-Knowledge-Point"><a href="#S3-Knowledge-Point" class="headerlink" title="S3 Knowledge Point"></a>S3 Knowledge Point</h2><ul>
+<li>S3 is <strong>Object-based</strong>, allows us to upload files.</li>
+<li>Files can be from 0 Bytes to 5 TB.</li>
+<li>unlimited storage.</li>
+<li>Files are stored is Buckets.</li>
+<li><strong>S3 is a universal namespace</strong>. So the name of buckets have to be unique globally.</li>
+<li>This is what the S3 url looks like: <a href="https://mscloudplatform.s3.amazonaws.com" target="_blank" rel="noopener">https://mscloudplatform.s3.amazonaws.com</a></li>
+<li>Not suitable to install an operation system on like EBS.</li>
+<li>Successful uploads will generate a HTTP 200 status code.</li>
+</ul>
+<p>By default, all newly created buckets are <strong>PRIVATE</strong>. We can setup access control to our buckets using:</p>
+<ul>
+<li>Bucket Policies</li>
+<li>Access Control Lists</li>
+</ul>
+<p>S3 Buckets can be configured to create access logs which log all requests made to the S3 buckets. This can be sent to another bucket and even another bucket in another account.</p>
+<h2 id="The-Key-Fundamentals-of-S3"><a href="#The-Key-Fundamentals-of-S3" class="headerlink" title="The Key Fundamentals of S3"></a>The Key Fundamentals of S3</h2><ul>
+<li>Key (This is simply te name of the object)</li>
+<li>Value (This is simply the data and is made up of a sequence of bytes)</li>
+<li>Version ID (Important for versioning)</li>
+<li>Metadata (Data about data you are storing)</li>
+<li>Subresources:<ul>
+<li>Access Control Lists</li>
+<li>Torrents </li>
+</ul>
+</li>
+<li><strong>Read after Write consistency for PUTS of new Objects</strong></li>
+<li><strong>Eventual Consistency for overwrite PUTS and DELETES (can take some time to propagate)</strong></li>
+</ul>
+<p><img src="S3_Storage_level.png" alt="S3 Storage Level"></p>
+<p>There are some different level of S3 storage we can choose when we upload Objects to S3 Buckets.</p>
+<h2 id="Understand-how-to-get-the-best-value-out-of-S3"><a href="#Understand-how-to-get-the-best-value-out-of-S3" class="headerlink" title="Understand how to get the best value out of S3"></a>Understand how to get the best value out of S3</h2><p>Storage Cost (High to Low):</p>
+<ol>
+<li>S3 Standard</li>
+<li>S3 - IA (Infrequently Accessed)</li>
+<li>S3 - Intelligent Tiering</li>
+<li>S3 One Zone - IA (not recommend)</li>
+<li>S3 Glacier</li>
+<li>S3 Glacier Deep Archive</li>
 </ol>
-<h2 id="如何解决原子性问题"><a href="#如何解决原子性问题" class="headerlink" title="如何解决原子性问题"></a>如何解决原子性问题</h2><p>可以通过 synchronized 关键字来解决，避免线程并行执行。synchronized 实现原理可以参照这篇文章：<a href="https://keanu96.github.io/deep-in-synchronized/">https://keanu96.github.io/deep-in-synchronized/</a></p>
+<h2 id="S3-Encryption"><a href="#S3-Encryption" class="headerlink" title="S3 Encryption"></a>S3 Encryption</h2><p><strong>Encryption in Transit is achieved by:</strong></p>
+<ul>
+<li>SSL/TLS</li>
+</ul>
+<p><strong>Encryption at Rest (Server Side) is achieved by</strong></p>
+<ul>
+<li>S3 managed Keys - SSE-S3</li>
+<li>AWS Key Management Service, Managed Keys - SSE-KMS</li>
+<li>Server Side Encrytion With Customer: Provided Keys - SSE-C</li>
+</ul>
+<p><strong>Client Side Encryption</strong></p>
+<h2 id="Best-Practices-with-AWS-Organizations-Enterprise-only"><a href="#Best-Practices-with-AWS-Organizations-Enterprise-only" class="headerlink" title="Best Practices with AWS Organizations(Enterprise only)"></a>Best Practices with AWS Organizations(Enterprise only)</h2><p><img src="best_practices_with_AWS_organizations.png" alt="Best Practices with AWS Organizations"></p>
+<h2 id="Share-S3-buckets-across-accounts"><a href="#Share-S3-buckets-across-accounts" class="headerlink" title="Share S3 buckets across accounts"></a>Share S3 buckets across accounts</h2><ul>
+<li>Using Bucket Policies &amp; IAM (applies across the entire bucket). Programmatic Access Only (APIs 访问).</li>
+<li>Using Bucket ACLs &amp; IAM (individual objects). Programmatic Access Only.</li>
+<li>Cross-account IAM Roles. Programmatic and Console access.</li>
+</ul>
+<h2 id="Cross-Region-Replication"><a href="#Cross-Region-Replication" class="headerlink" title="Cross Region Replication"></a>Cross Region Replication</h2><ul>
+<li>Versioning must be enbaled on both the source and destination buckets.(版本控制必须要在source和target同时启用)</li>
+<li>Regions must be unique. </li>
+<li>Files in an existing bucket are not replicated automatically. (已经存在于桶的文件不会自动replicate)</li>
+<li>All subsequent updated files will be replicated automatically. (所有之后的文件上传或者更新都会自动replicate)</li>
+<li>Delete markets are not replicated. (删除标记不会replicate)</li>
+<li>Deleting individual versions or delete markers will not be replicated. (删除单独的版本或删除delete markers不会被replicate)</li>
+<li>Understand what Cross Region Replication is at a high level.</li>
+</ul>
+<h2 id="Lifecycle-Policies"><a href="#Lifecycle-Policies" class="headerlink" title="Lifecycle Policies"></a>Lifecycle Policies</h2><ul>
+<li>Automates moving your objects between the different storage tiers. (可以将你的objects自动在不同的存储级别之间移动)</li>
+<li>Can be used in conjuction with versioning. (可以和版本控制结合使用)</li>
+<li>Can be applied to current versions and previous versions.(可以应用于当前版本和旧版本)</li>
+</ul>
+<h1 id="CloudFront"><a href="#CloudFront" class="headerlink" title="CloudFront"></a>CloudFront</h1><h2 id="CloudFront-Knowledge-Point"><a href="#CloudFront-Knowledge-Point" class="headerlink" title="CloudFront Knowledge Point"></a>CloudFront Knowledge Point</h2><ul>
+<li><strong>Edge Location</strong> - This is the location where content will be cached. This is separate to an AWS Region/AZ (content被缓存的地方，独立于AWS地区和可用区)</li>
+<li><strong>Origin</strong> - This is the origin of all the files that the CDN will distribute. This can be either an S3 Bucket, an EC2 Instance, an Elastic Load Balancer, or Route53. (这是CDN分发的所有文件资源的来源。可以是S3 Bucket，可以是一个EC2实例，也可以是ELB，或者Route53)</li>
+<li><strong>Distribution</strong> - This is the name given the CDN which consists of a collection of Edge Locations. (这是给定的由Edge Locations集合组成的CDN的名称)</li>
+<li><strong>Web Distribution</strong> - Typically used for Websites. (通常用于网站)</li>
+<li><strong>RTMP</strong> - Used for Media Streaming.</li>
+<li>Edge locations are not just <strong>READ</strong> only - you can write to them too. (Edge locations 不止是只读，我们也可以将数据写入edge location)</li>
+<li>Objects are cached for the life of the <strong>TTL</strong>(Time To Live). (对象只在TTL的生命周期中被缓存)</li>
+<li>You can clear cached objects, but you will be charged. (我们可一清楚缓存的对象，但是需要收费)</li>
+</ul>
+<h1 id="Storage-Gateway"><a href="#Storage-Gateway" class="headerlink" title="Storage Gateway"></a>Storage Gateway</h1><p>There are some kinds of gateways:</p>
+<p><strong>File Gateway</strong></p>
+<ul>
+<li>For flat files, stored directly on S3</li>
+</ul>
+<p><strong>Volume Gateway</strong></p>
+<ul>
+<li><strong>Stored Volumes</strong> - Entire Dataset is stored on site and is aynchronously backed up to S3. (<strong>存储卷</strong> - 整个数据集都存储在站点上并异步备份至S3)</li>
+<li><strong>Cached Volumes</strong> - Entire Dataset is Stored on S3 and the most frequently accessed data is cached on site. (<strong>缓存卷</strong> - 整个数据集都存储在S3中，最常访问的数据被缓存在站点上)</li>
+</ul>
+<p><strong>Gateway Virtual Tape Library</strong></p>
+<ul>
+<li>USed for backup and uses popular backup applications like NetBackup, Backup Exec, Veeam etc.</li>
+</ul>
 
       
     </div>
@@ -643,7 +715,7 @@
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="http://keanu96.github.io/volatile学习笔记/" title="volatile学习笔记">http://keanu96.github.io/volatile学习笔记/</a>
+    <a href="http://keanu96.github.io/s3-iam-summary/" title="AWS S3 & IAM Summary">http://keanu96.github.io/s3-iam-summary/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -656,7 +728,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/并发/" rel="tag"><i class="fa fa-tag"></i> 并发</a>
+            <a href="/tags/S3/" rel="tag"><i class="fa fa-tag"></i> S3</a>
+          
+            <a href="/tags/IAM/" rel="tag"><i class="fa fa-tag"></i> IAM</a>
           
         </div>
       
@@ -669,8 +743,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/deep-in-eureka/" rel="next" title="微服务注册中心 Eureka 架构深入解读（转载）">
-                <i class="fa fa-chevron-left"></i> 微服务注册中心 Eureka 架构深入解读（转载）
+              <a href="/athena-and-macie/" rel="next" title="Athena and Macie">
+                <i class="fa fa-chevron-left"></i> Athena and Macie
               </a>
             
           </div>
@@ -678,10 +752,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/deep-into-JMM/" rel="prev" title="深入理解Java内存模型(JMM)及Volatile关键字（转载）">
-                深入理解Java内存模型(JMM)及Volatile关键字（转载） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -928,7 +998,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#volatile-在-JVM-中如何实现"><span class="nav-number">1.</span> <span class="nav-text">volatile 在 JVM 中如何实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#volatile-原子性问题"><span class="nav-number">2.</span> <span class="nav-text">volatile 原子性问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何解决原子性问题"><span class="nav-number">3.</span> <span class="nav-text">如何解决原子性问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#IAM-Identity-Access-Management"><span class="nav-number">1.</span> <span class="nav-text">IAM - Identity Access Management</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IAM-Knowledge-Point"><span class="nav-number">1.1.</span> <span class="nav-text">IAM Knowledge Point</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#S3-Simple-Storage-Service"><span class="nav-number">2.</span> <span class="nav-text">S3- Simple Storage Service</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#S3-Knowledge-Point"><span class="nav-number">2.1.</span> <span class="nav-text">S3 Knowledge Point</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Key-Fundamentals-of-S3"><span class="nav-number">2.2.</span> <span class="nav-text">The Key Fundamentals of S3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Understand-how-to-get-the-best-value-out-of-S3"><span class="nav-number">2.3.</span> <span class="nav-text">Understand how to get the best value out of S3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#S3-Encryption"><span class="nav-number">2.4.</span> <span class="nav-text">S3 Encryption</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Best-Practices-with-AWS-Organizations-Enterprise-only"><span class="nav-number">2.5.</span> <span class="nav-text">Best Practices with AWS Organizations(Enterprise only)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Share-S3-buckets-across-accounts"><span class="nav-number">2.6.</span> <span class="nav-text">Share S3 buckets across accounts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cross-Region-Replication"><span class="nav-number">2.7.</span> <span class="nav-text">Cross Region Replication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lifecycle-Policies"><span class="nav-number">2.8.</span> <span class="nav-text">Lifecycle Policies</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CloudFront"><span class="nav-number">3.</span> <span class="nav-text">CloudFront</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CloudFront-Knowledge-Point"><span class="nav-number">3.1.</span> <span class="nav-text">CloudFront Knowledge Point</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Storage-Gateway"><span class="nav-number">4.</span> <span class="nav-text">Storage Gateway</span></a></li></ol></div>
             
 
           </div>
@@ -1105,9 +1175,9 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "http://keanu96.github.io/volatile学习笔记/";
-    this.page.identifier = "volatile学习笔记/";
-    this.page.title = 'volatile学习笔记';
+    this.page.url = "http://keanu96.github.io/s3-iam-summary/";
+    this.page.identifier = "s3-iam-summary/";
+    this.page.title = 'AWS S3 & IAM Summary';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');
