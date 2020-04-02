@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Keanu</title>
+  <title>Java Stack - Ryan</title>
   
-  <subtitle>Don&#39;t be mediocre!</subtitle>
+  <subtitle>Java 技术栈小记</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ryan4cloud.github.io/"/>
@@ -10,7 +10,7 @@
   <id>http://ryan4cloud.github.io/</id>
   
   <author>
-    <name>Keanu</name>
+    <name>Ryan</name>
     
   </author>
   
