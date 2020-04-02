@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ryan4cloud.github.io/Spring-IOC-%E5%AE%B9%E5%99%A8%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</loc>
+    
+    <lastmod>2020-04-02T15:12:47.628Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ryan4cloud.github.io/friends/index.html</loc>
     
     <lastmod>2020-04-02T13:32:51.577Z</lastmod>
@@ -110,13 +117,6 @@
     <loc>http://ryan4cloud.github.io/build-hexo-blog/</loc>
     
     <lastmod>2019-11-11T11:17:14.580Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ryan4cloud.github.io/Spring-IOC-%E5%AE%B9%E5%99%A8%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</loc>
-    
-    <lastmod>2019-11-11T11:17:14.540Z</lastmod>
     
   </url>
   
