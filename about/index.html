@@ -17,7 +17,7 @@
 
 
     <title>关于我 | Keanu</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/svg+xml" href="/book.svg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -402,7 +402,7 @@
                     <div class="col s12 m12 l4">
                         <div class="profile center-align">
                             <div class="avatar">
-                                <img src="/medias/avatar.jpeg" alt="Keanu" class="circle responsive-img avatar-img">
+                                <img src="/medias/avatar.jpg" alt="Keanu" class="circle responsive-img avatar-img">
                             </div>
                             <div class="author">
                                 <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
@@ -608,7 +608,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"AWS","value":2},{"name":"Spring","value":2},{"name":"Hexo","value":1},{"name":"Spring Cloud","value":2},{"name":"Java","value":4},{"name":"Leetcode","value":1},{"name":"Redis","value":1},{"name":"Easy","value":1}],
+                data: [{"name":"Spring","value":2},{"name":"AWS","value":2},{"name":"Hexo","value":1},{"name":"Spring Cloud","value":2},{"name":"Java","value":4},{"name":"Leetcode","value":1},{"name":"Redis","value":1},{"name":"Easy","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -632,7 +632,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["并发","Algorithm","Athena","Macie","Spring MVC","Hexo 博客搭建","Eureka","负载均衡","Ribbon","Binary Tree"]
+                data: ["并发","Algorithm","Spring MVC","Athena","Macie","Hexo 博客搭建","Eureka","负载均衡","Ribbon","JVM"]
             }
         ],
         yAxis: [
@@ -756,6 +756,12 @@
         <div class="tag-chips center-align">
             
             
+            <a href="/tags/Spring-MVC/">
+                <span class="chip center-align waves-effect waves-light chip-default">Spring MVC</span>
+            </a>
+            
+            
+            
             <a href="/tags/Athena/">
                 <span class="chip center-align waves-effect waves-light chip-default">Athena</span>
             </a>
@@ -764,12 +770,6 @@
             
             <a href="/tags/Macie/">
                 <span class="chip center-align waves-effect waves-light chip-default">Macie</span>
-            </a>
-            
-            
-            
-            <a href="/tags/Spring-MVC/">
-                <span class="chip center-align waves-effect waves-light chip-default">Spring MVC</span>
             </a>
             
             
@@ -804,6 +804,12 @@
             
             
             
+            <a href="/tags/JVM/">
+                <span class="chip center-align waves-effect waves-light chip-default">JVM</span>
+            </a>
+            
+            
+            
             <a href="/tags/Algorithm/">
                 <span class="chip center-align waves-effect waves-light chip-default">Algorithm</span>
             </a>
@@ -818,12 +824,6 @@
             
             <a href="/tags/Redis-持久化/">
                 <span class="chip center-align waves-effect waves-light chip-default">Redis 持久化</span>
-            </a>
-            
-            
-            
-            <a href="/tags/JVM/">
-                <span class="chip center-align waves-effect waves-light chip-default">JVM</span>
             </a>
             
             
@@ -861,41 +861,6 @@
 </main>
 
     <footer class="page-footer bg-color">
-    
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class>
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease" type="playlist" id="503838841" fixed="true" autoplay="false" theme="#42b983" loop="all" order="random" preload="auto" volume="0.7" list-folded="true">
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
@@ -1013,8 +978,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
