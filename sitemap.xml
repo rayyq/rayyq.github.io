@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ryan4cloud.github.io/build-hexo-blog/</loc>
+    
+    <lastmod>2020-04-03T12:37:18.016Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ryan4cloud.github.io/paxos-made-simple/</loc>
     
     <lastmod>2020-04-03T12:04:02.194Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>http://ryan4cloud.github.io/deep-in-eureka/</loc>
     
     <lastmod>2020-04-03T12:02:32.592Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ryan4cloud.github.io/build-hexo-blog/</loc>
-    
-    <lastmod>2020-04-03T11:59:59.369Z</lastmod>
     
   </url>
   
